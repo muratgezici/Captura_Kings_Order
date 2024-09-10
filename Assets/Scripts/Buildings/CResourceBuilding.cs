@@ -39,6 +39,18 @@ public class CResourceBuilding : CBuildingBase
         {
             EventManager.UpdateWoodAmount(1);
         }
+        else if(ResourceType == "morale")
+        {
+            EventManager.UpdateMoraleAmount(1);
+        }
+        else if (ResourceType == "iron")
+        {
+            EventManager.UpdateIronAmount(1);
+        }
+        else if (ResourceType == "coin")
+        {
+            EventManager.UpdateCoinAmount(1);
+        }
 
     }
 }
