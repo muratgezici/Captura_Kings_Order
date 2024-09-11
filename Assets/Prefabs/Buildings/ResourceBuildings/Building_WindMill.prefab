@@ -153,8 +153,10 @@ MonoBehaviour:
   MaxTimeForProduction: 2
   UnitsInsideTile: []
   TimeCounter: 0
+  ExtraParticles: []
   ResourceType: grain
   AnimationsOnResourceGained: {fileID: 4566428704255300901}
+  ResourceIncrementAmount: 1
 --- !u!1 &2791839363565031409
 GameObject:
   m_ObjectHideFlags: 0
@@ -978,6 +980,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8312546528628173870}
     m_Modifications:
+    - target: {fileID: 1177492868520300, guid: 4d66c00407d4c964bac5acc674375fdb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1868742415483676, guid: 4d66c00407d4c964bac5acc674375fdb, type: 3}
       propertyPath: m_Name
       value: SilverCoinBlast
@@ -1033,6 +1039,26 @@ PrefabInstance:
     - target: {fileID: 4485129242043058, guid: 4d66c00407d4c964bac5acc674375fdb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198476419597470766, guid: 4d66c00407d4c964bac5acc674375fdb,
+        type: 3}
+      propertyPath: InitialModule.startSizeY.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198476419597470766, guid: 4d66c00407d4c964bac5acc674375fdb,
+        type: 3}
+      propertyPath: InitialModule.startSizeZ.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198476419597470766, guid: 4d66c00407d4c964bac5acc674375fdb,
+        type: 3}
+      propertyPath: InitialModule.startRotationX.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198476419597470766, guid: 4d66c00407d4c964bac5acc674375fdb,
+        type: 3}
+      propertyPath: InitialModule.startRotationY.minMaxState
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

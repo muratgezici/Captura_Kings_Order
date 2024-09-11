@@ -7,6 +7,7 @@ public class CResourceBuilding : CBuildingBase
 {
     [SerializeField] private string ResourceType = "";
     [SerializeField] private GameObject AnimationsOnResourceGained;
+    [SerializeField] private int ResourceIncrementAmount = 1;
 
     private void Update()
     {
@@ -33,23 +34,23 @@ public class CResourceBuilding : CBuildingBase
     {
         if (ResourceType == "grain")
         {
-            EventManager.UpdateFoodAmount(1);
+            EventManager.UpdateFoodAmount(ResourceIncrementAmount);
         }
         else if (ResourceType == "wood")
         {
-            EventManager.UpdateWoodAmount(1);
+            EventManager.UpdateWoodAmount(ResourceIncrementAmount);
         }
         else if(ResourceType == "morale")
         {
-            EventManager.UpdateMoraleAmount(1);
+            EventManager.UpdateMoraleAmount(ResourceIncrementAmount);
         }
         else if (ResourceType == "iron")
         {
-            EventManager.UpdateIronAmount(1);
+            EventManager.UpdateIronAmount(ResourceIncrementAmount);
         }
         else if (ResourceType == "coin")
         {
-            EventManager.UpdateCoinAmount(1);
+            EventManager.UpdateCoinAmount(ResourceIncrementAmount);
         }
 
     }

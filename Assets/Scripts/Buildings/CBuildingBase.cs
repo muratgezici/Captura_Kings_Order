@@ -9,13 +9,17 @@ public class CBuildingBase : MonoBehaviour
     [SerializeField] protected float MaxTimeForProduction = 0;
     [SerializeField] protected List<GameObject> UnitsInsideTile = new List<GameObject>();
     [SerializeField] protected float TimeCounter = 0;
-    [SerializeField] protected GameObject ExtraParticles;
+    [SerializeField] protected GameObject[] ExtraParticles;
 
     private void Start()
     {
-        if (ExtraParticles != null)
+        if (ExtraParticles.Length != 0)
         {
-            ExtraParticles.GetComponent<ParticleSystem>().Play();
+            foreach (GameObject obj in ExtraParticles)
+            {
+                obj.GetComponent<ParticleSystem>().Play();
+            }
+            
         }
     }
 }
