@@ -72135,6 +72135,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building_Church
       objectReference: {fileID: 0}
+    - target: {fileID: 1260451196755823822, guid: 76d6056ab7a22194caa5f431f96e4856,
+        type: 3}
+      propertyPath: OwnedByColor
+      value: blue
+      objectReference: {fileID: 0}
     - target: {fileID: 1354551853215537335, guid: 76d6056ab7a22194caa5f431f96e4856,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -72183,6 +72188,16 @@ PrefabInstance:
     - target: {fileID: 1354551853215537335, guid: 76d6056ab7a22194caa5f431f96e4856,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4651158089875117852, guid: 76d6056ab7a22194caa5f431f96e4856,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6543245768404492749, guid: 76d6056ab7a22194caa5f431f96e4856,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
