@@ -16,7 +16,7 @@ public class CResourceBuilding : CBuildingBase
     public void ResourceGainAction()
     {
         
-        if (OwnedByColor != "none")
+        if (OwnedByColor == "blue")
         {
             TimeCounter += Time.deltaTime;
             if (TimeCounter > MaxTimeForProduction)
@@ -24,7 +24,9 @@ public class CResourceBuilding : CBuildingBase
                 TimeCounter = 0;
                 AnimationsOnResourceGained.GetComponent<MMF_Player>().PlayFeedbacks();
                 BroadcastMessageToResourceManager();
-                
+
+
+
             }
 
         }

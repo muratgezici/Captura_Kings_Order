@@ -22,7 +22,7 @@ public class CResourceManager : MonoBehaviour
         EnableResourceManagement();
     }
     #region Event Manager Actions
-    private void EnableResourceManagement()
+    public void EnableResourceManagement()
     {
         EventManager.OnUpdateWoodAmount += UpdateWoodAmountByValue;
         EventManager.OnUpdateCoinAmount += UpdateCoinAmountByValue;
@@ -30,7 +30,7 @@ public class CResourceManager : MonoBehaviour
         EventManager.OnUpdateIronAmount += UpdateIronAmountByValue;
         EventManager.OnUpdateMoraleAmount += UpdateMoraleAmountByValue;
     }
-    private void DisableResourceManagement()
+    public void DisableResourceManagement()
     {
         EventManager.OnUpdateWoodAmount -= UpdateWoodAmountByValue;
         EventManager.OnUpdateCoinAmount -= UpdateCoinAmountByValue;
