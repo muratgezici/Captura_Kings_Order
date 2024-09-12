@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 71074928735432032}
   - component: {fileID: 5701797025419012759}
   - component: {fileID: 968523884221104820}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 2607936359349655773}
   - component: {fileID: 3442271401494784981}
   - component: {fileID: 2632408832811294686}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: ResourceImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -189,7 +189,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2485885092912315625}
   - component: {fileID: 927978614549887662}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: AnimationHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -927,7 +927,7 @@ GameObject:
   m_Component:
   - component: {fileID: 835404944300227165}
   - component: {fileID: 1607370326957189509}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Building_Mine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -986,7 +986,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9209933564604913}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Buildings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1092,6 +1092,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 55cab34dcb065024991e1b19ed715ca0,
         type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 55cab34dcb065024991e1b19ed715ca0,
+        type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -1168,6 +1173,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: building_mine_yellow
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: aa04640de5573a8409c5962315b69998,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1255,6 +1265,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f178d5aeb8cca334c95c9d364f7453f0,
         type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f178d5aeb8cca334c95c9d364f7453f0,
+        type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -1287,13 +1302,29 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2607936359349655773}
     m_Modifications:
+    - target: {fileID: 1078356906592648, guid: 4d66c00407d4c964bac5acc674375fdb, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1177492868520300, guid: 4d66c00407d4c964bac5acc674375fdb, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1177492868520300, guid: 4d66c00407d4c964bac5acc674375fdb, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1396191776373810, guid: 4d66c00407d4c964bac5acc674375fdb, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1868742415483676, guid: 4d66c00407d4c964bac5acc674375fdb, type: 3}
       propertyPath: m_Name
       value: SilverCoinBlast
+      objectReference: {fileID: 0}
+    - target: {fileID: 1868742415483676, guid: 4d66c00407d4c964bac5acc674375fdb, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4485129242043058, guid: 4d66c00407d4c964bac5acc674375fdb, type: 3}
       propertyPath: m_LocalScale.x
@@ -1446,6 +1477,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: wheelbarrow (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 608e8e7bbbf92d747a044f59d6692d73,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2192,6 +2228,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: wheelbarrow
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 608e8e7bbbf92d747a044f59d6692d73,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2956,6 +2997,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 55cab34dcb065024991e1b19ed715ca0,
         type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 55cab34dcb065024991e1b19ed715ca0,
+        type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -3032,6 +3078,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: building_mine_red
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 91fb14af15be7c742875e1bc35a1bf83,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 91fb14af15be7c742875e1bc35a1bf83,
         type: 3}
@@ -3121,6 +3172,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: wheelbarrow (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 608e8e7bbbf92d747a044f59d6692d73,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3870,6 +3926,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ec8524c8e067da844b23bd0833407297,
         type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ec8524c8e067da844b23bd0833407297,
+        type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -3956,6 +4017,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: wheelbarrow (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 608e8e7bbbf92d747a044f59d6692d73,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4720,6 +4786,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 55cab34dcb065024991e1b19ed715ca0,
         type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 55cab34dcb065024991e1b19ed715ca0,
+        type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -4811,6 +4882,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: resource_stone
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 55cab34dcb065024991e1b19ed715ca0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 55cab34dcb065024991e1b19ed715ca0,
         type: 3}

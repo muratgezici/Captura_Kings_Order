@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5220936146056326765}
   - component: {fileID: 4299547228795440202}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Building_WaterMill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 6583566319376689116}
   - component: {fileID: 122261201157798689}
   - component: {fileID: 2273517826143764160}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -173,7 +173,7 @@ GameObject:
   - component: {fileID: 693936067796943847}
   - component: {fileID: 7627246592116292792}
   - component: {fileID: 6493412805327162709}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: ResourceImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -248,7 +248,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3663436088452154003}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Buildings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -284,7 +284,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4707397170138603448}
   - component: {fileID: 1907648530688251474}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: AnimationHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1077,8 +1077,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e8ca3612f869ece4991c9e428a4a88d7,
         type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e8ca3612f869ece4991c9e428a4a88d7,
+        type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8685066967014656488, guid: e8ca3612f869ece4991c9e428a4a88d7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1484,13 +1494,29 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 693936067796943847}
     m_Modifications:
+    - target: {fileID: 1078356906592648, guid: 4d66c00407d4c964bac5acc674375fdb, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1177492868520300, guid: 4d66c00407d4c964bac5acc674375fdb, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1177492868520300, guid: 4d66c00407d4c964bac5acc674375fdb, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1396191776373810, guid: 4d66c00407d4c964bac5acc674375fdb, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1868742415483676, guid: 4d66c00407d4c964bac5acc674375fdb, type: 3}
       propertyPath: m_Name
       value: SilverCoinBlast
+      objectReference: {fileID: 0}
+    - target: {fileID: 1868742415483676, guid: 4d66c00407d4c964bac5acc674375fdb, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4485129242043058, guid: 4d66c00407d4c964bac5acc674375fdb, type: 3}
       propertyPath: m_LocalScale.x
@@ -1646,8 +1672,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 6979c281160cf2343bbe4867bbd21357,
         type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6979c281160cf2343bbe4867bbd21357,
+        type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6129398807401691421, guid: 6979c281160cf2343bbe4867bbd21357,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2103,10 +2139,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4540661001803618566, guid: 4bfd5a2bf0aae21448037fc152bfe486,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 4bfd5a2bf0aae21448037fc152bfe486,
         type: 3}
       propertyPath: m_Name
       value: building_watermill_yellow
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4bfd5a2bf0aae21448037fc152bfe486,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2569,8 +2615,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f50a133594e773c4e8a6a6b07dba55b8,
         type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f50a133594e773c4e8a6a6b07dba55b8,
+        type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3549660402005024906, guid: f50a133594e773c4e8a6a6b07dba55b8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

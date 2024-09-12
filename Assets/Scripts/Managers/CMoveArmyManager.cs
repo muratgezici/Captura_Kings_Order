@@ -21,7 +21,11 @@ public class CMoveArmyManager : MonoBehaviour
         {
             foreach (var agentobj in ALLAGENTS)
             {
-                agentobj.GetComponent<CSoldierAgentMove>().SetDestinationHexagon(hit.transform.gameObject);
+                if(agentobj == null)
+                {
+                    continue;
+                }
+                agentobj.GetComponent<CSoldierUnitMove>().SetDestinationHexagon(hit.transform.gameObject);
                 NavMeshAgent agent = agentobj.GetComponent<NavMeshAgent>();
                 agent.destination = hit.point;
                

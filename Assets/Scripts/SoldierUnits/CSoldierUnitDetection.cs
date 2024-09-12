@@ -1,0 +1,77 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class CSoldierUnitDetection : MonoBehaviour
+{
+    [SerializeField] private List<GameObject> EnemyUnitsNear = new List<GameObject>();
+    [SerializeField] private int EnemyUnitNearCount = 0;
+    [SerializeField] private CSoldierUnitCombat UnitCombat;
+    private void OnTriggerEnter(Collider other)
+    {
+        if (EnemyUnitNearCount > 5 || !other.CompareTag("SoldierUnit"))
+        {
+            return;
+        }
+        CSoldierUnitBase this_unit_base = gameObject.transform.parent.GetComponent<CSoldierUnitBase>();
+        CSoldierUnitBase unit_base = other.gameObject.GetComponent<CSoldierUnitBase>();
+        if (unit_base.GetOwnedByColor() != this_unit_base.GetOwnedByColor())
+        {
+            EnemyUnitsNear.Add(other.gameObject);
+            EnemyUnitNearCount++;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (!other.CompareTag("SoldierUnit"))
+        {
+            return;
+        }
+        CSoldierUnitBase this_unit_base = gameObject.transform.parent.GetComponent<CSoldierUnitBase>();
+        CSoldierUnitBase unit_base = other.gameObject.GetComponent<CSoldierUnitBase>();
+        if (unit_base.GetOwnedByColor() != this_unit_base.GetOwnedByColor())
+        {
+            EnemyUnitsNear.Remove(other.gameObject);
+            EnemyUnitNearCount--;
+        }
+    }
+
+    private void Update()
+    {
+        GameObject closest_enemy = null;
+        float min_dist = 11110;
+        foreach (GameObject enemy_unit in EnemyUnitsNear)
+        {
+            if (enemy_unit == null)
+            {
+                EnemyUnitNearCount--;
+            }
+            else
+            {
+                float dist = Vector2.Distance(new Vector2(transform.position.x, transform.position.y), new Vector2(enemy_unit.transform.position.x, enemy_unit.transform.position.y));
+                if (dist < min_dist)
+                {
+                    min_dist = dist;
+                    closest_enemy = enemy_unit;
+                }
+            }
+        }
+        for (int i = EnemyUnitsNear.Count - 1; i >= 0; i--)
+        {
+            if (EnemyUnitsNear[i] == null)
+            {
+                EnemyUnitsNear.Remove(EnemyUnitsNear[i]);
+            }
+        }
+        EnemyUnitNearCount = EnemyUnitsNear.Count;
+        if (EnemyUnitNearCount != 0 && UnitCombat.GetEnemyUnitsNear() == 0)
+        {
+            InformSoldierUnitMove(closest_enemy);
+        }
+    }
+    public void InformSoldierUnitMove(GameObject enemy_unit)
+    {
+        gameObject.transform.parent.GetComponent<CSoldierUnitMove>().EnemyAgentDetected(enemy_unit);
+        
+    }
+}

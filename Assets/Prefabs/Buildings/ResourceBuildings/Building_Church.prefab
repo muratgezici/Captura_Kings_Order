@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1354551853215537335}
   - component: {fileID: 1260451196755823822}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Building_Church
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3800156877610103826}
   - component: {fileID: 4519329964936892325}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: AnimationHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -811,7 +811,7 @@ GameObject:
   - component: {fileID: 1894236625332152705}
   - component: {fileID: 2254109763418871370}
   - component: {fileID: 4773149311134905061}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: ResourceImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -886,7 +886,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1235947796534410436}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Buildings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -924,7 +924,7 @@ GameObject:
   - component: {fileID: 8019777742055477336}
   - component: {fileID: 7467348768759645729}
   - component: {fileID: 535665120532795379}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1082,6 +1082,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CalmStarField
       objectReference: {fileID: 0}
+    - target: {fileID: 8079353729398404772, guid: 8a9f308ef9cd0c54d8610bef73a3c9fe,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1107,13 +1112,29 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1894236625332152705}
     m_Modifications:
+    - target: {fileID: 1078356906592648, guid: 4d66c00407d4c964bac5acc674375fdb, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1177492868520300, guid: 4d66c00407d4c964bac5acc674375fdb, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1177492868520300, guid: 4d66c00407d4c964bac5acc674375fdb, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1396191776373810, guid: 4d66c00407d4c964bac5acc674375fdb, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1868742415483676, guid: 4d66c00407d4c964bac5acc674375fdb, type: 3}
       propertyPath: m_Name
       value: SilverCoinBlast
+      objectReference: {fileID: 0}
+    - target: {fileID: 1868742415483676, guid: 4d66c00407d4c964bac5acc674375fdb, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4485129242043058, guid: 4d66c00407d4c964bac5acc674375fdb, type: 3}
       propertyPath: m_LocalScale.x
@@ -1269,6 +1290,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 0b608745a6558604095698f5ef3b6e7a,
         type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0b608745a6558604095698f5ef3b6e7a,
+        type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -1352,6 +1378,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: building_church_yellow
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 16f1b7c9a1773c944acec2239df67bca,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1431,6 +1462,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: building_church_green
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1a7d4e81c1dd1e347b5b316055436806,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 1a7d4e81c1dd1e347b5b316055436806,
         type: 3}
@@ -1516,6 +1552,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: building_church_red
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cb7197195487d254796b4e0acee7dd5f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: cb7197195487d254796b4e0acee7dd5f,
         type: 3}

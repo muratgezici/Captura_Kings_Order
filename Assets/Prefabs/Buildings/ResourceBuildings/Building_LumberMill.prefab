@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6024964083243088720}
   - component: {fileID: 6419255344077103110}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: AnimationHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -748,7 +748,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1922689164954868287}
   - component: {fileID: 3631154851828577035}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Building_LumberMill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -810,7 +810,7 @@ GameObject:
   - component: {fileID: 6371031002690009623}
   - component: {fileID: 7015252596834311664}
   - component: {fileID: 613627018355904384}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: ResourceImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -885,7 +885,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8899603198316250644}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Buildings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -923,7 +923,7 @@ GameObject:
   - component: {fileID: 6754816541665332109}
   - component: {fileID: 5552687005006701960}
   - component: {fileID: 5781442342338826180}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1071,10 +1071,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5182728840969440997, guid: 90a2aaae44218dd4c9836f6aacaeb4ec,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 90a2aaae44218dd4c9836f6aacaeb4ec,
         type: 3}
       propertyPath: m_Name
       value: building_lumbermill_yellow
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 90a2aaae44218dd4c9836f6aacaeb4ec,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1790167815303919069, guid: 90a2aaae44218dd4c9836f6aacaeb4ec,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1948,10 +1963,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1578599706460633222, guid: 6f028c7fb3a262941918e4fcf434f66e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -375081031933145442, guid: 6f028c7fb3a262941918e4fcf434f66e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 6f028c7fb3a262941918e4fcf434f66e,
         type: 3}
       propertyPath: m_Name
       value: building_lumbermill_blue
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6f028c7fb3a262941918e4fcf434f66e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 6f028c7fb3a262941918e4fcf434f66e,
         type: 3}
@@ -2807,8 +2837,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 24cfa1014c941864286a29dfb4c8ae0e,
         type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 24cfa1014c941864286a29dfb4c8ae0e,
+        type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4044515699993763739, guid: 24cfa1014c941864286a29dfb4c8ae0e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7579136327535600649, guid: 24cfa1014c941864286a29dfb4c8ae0e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3657,6 +3702,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: trees_B_small
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 38c6682fa1eeae84097378bf18e58342,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3676,13 +3726,29 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6371031002690009623}
     m_Modifications:
+    - target: {fileID: 1078356906592648, guid: 4d66c00407d4c964bac5acc674375fdb, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1177492868520300, guid: 4d66c00407d4c964bac5acc674375fdb, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1177492868520300, guid: 4d66c00407d4c964bac5acc674375fdb, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1396191776373810, guid: 4d66c00407d4c964bac5acc674375fdb, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1868742415483676, guid: 4d66c00407d4c964bac5acc674375fdb, type: 3}
       propertyPath: m_Name
       value: SilverCoinBlast
+      objectReference: {fileID: 0}
+    - target: {fileID: 1868742415483676, guid: 4d66c00407d4c964bac5acc674375fdb, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4485129242043058, guid: 4d66c00407d4c964bac5acc674375fdb, type: 3}
       propertyPath: m_LocalScale.x
@@ -3831,10 +3897,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8576619655382739593, guid: 26d2f5342dfed7e428af5af249500868,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -3268746143184651937, guid: 26d2f5342dfed7e428af5af249500868,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 26d2f5342dfed7e428af5af249500868,
         type: 3}
       propertyPath: m_Name
       value: building_lumbermill_green
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 26d2f5342dfed7e428af5af249500868,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 26d2f5342dfed7e428af5af249500868,
         type: 3}

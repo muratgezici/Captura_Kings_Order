@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 564006640234511066}
   - component: {fileID: 4710100963723566847}
   - component: {fileID: 1672433623796494547}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: ResourceImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4357114651869508161}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Buildings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,7 +122,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1870801941041936998}
   - component: {fileID: 977245837076572472}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Building_Market
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -188,7 +188,7 @@ GameObject:
   - component: {fileID: 4087081862069342574}
   - component: {fileID: 5488698725127917512}
   - component: {fileID: 574394852462302755}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -288,7 +288,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6754787212003283886}
   - component: {fileID: 9124124300847713079}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: AnimationHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1081,6 +1081,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 509514cee14610543a1103dc1044a2ea,
         type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 509514cee14610543a1103dc1044a2ea,
+        type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -1109,6 +1114,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 564006640234511066}
     m_Modifications:
+    - target: {fileID: 114844, guid: 09d9de58ef3bf5444ac94afa0e6013cb, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 116602, guid: 09d9de58ef3bf5444ac94afa0e6013cb, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 116602, guid: 09d9de58ef3bf5444ac94afa0e6013cb, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1116,6 +1129,14 @@ PrefabInstance:
     - target: {fileID: 143964, guid: 09d9de58ef3bf5444ac94afa0e6013cb, type: 3}
       propertyPath: m_Name
       value: GoldCoinBlast
+      objectReference: {fileID: 0}
+    - target: {fileID: 143964, guid: 09d9de58ef3bf5444ac94afa0e6013cb, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 188778, guid: 09d9de58ef3bf5444ac94afa0e6013cb, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 430288, guid: 09d9de58ef3bf5444ac94afa0e6013cb, type: 3}
       propertyPath: m_LocalScale.x
@@ -1267,6 +1288,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c1721532f66a45f4aa37200e03371df9,
         type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c1721532f66a45f4aa37200e03371df9,
+        type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -1350,6 +1376,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: building_market_yellow
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cc5e26bffa6a7c84f8786a9b923510f6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1378,6 +1409,10 @@ PrefabInstance:
     - target: {fileID: 173868, guid: 5a3799b600abe864c951d14b93a92752, type: 3}
       propertyPath: m_Name
       value: GoldCoinFountain (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 173868, guid: 5a3799b600abe864c951d14b93a92752, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 483080, guid: 5a3799b600abe864c951d14b93a92752, type: 3}
       propertyPath: m_LocalScale.x
@@ -1553,6 +1588,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 789f7a8e3794b834b84946efc7615ad8,
         type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 789f7a8e3794b834b84946efc7615ad8,
+        type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -1584,6 +1624,10 @@ PrefabInstance:
     - target: {fileID: 173868, guid: 5a3799b600abe864c951d14b93a92752, type: 3}
       propertyPath: m_Name
       value: GoldCoinFountain
+      objectReference: {fileID: 0}
+    - target: {fileID: 173868, guid: 5a3799b600abe864c951d14b93a92752, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 483080, guid: 5a3799b600abe864c951d14b93a92752, type: 3}
       propertyPath: m_LocalScale.x
