@@ -25,6 +25,7 @@ public class CResourceManager : MonoBehaviour
     #region Event Manager Actions
     public void EnableResourceManagement()
     {
+        EventManager.OnSceneReload += DisableResourceManagement;
         EventManager.OnUpdateWoodAmount += UpdateWoodAmountByValue;
         EventManager.OnUpdateCoinAmount += UpdateCoinAmountByValue;
         EventManager.OnUpdateFoodAmount += UpdateFoodAmountByValue;
@@ -38,6 +39,7 @@ public class CResourceManager : MonoBehaviour
         EventManager.OnUpdateFoodAmount -= UpdateFoodAmountByValue;
         EventManager.OnUpdateIronAmount -= UpdateIronAmountByValue;
         EventManager.OnUpdateMoraleAmount -= UpdateMoraleAmountByValue;
+        EventManager.OnSceneReload -= DisableResourceManagement;
     }
     #endregion
     #region Update Resource Amounts

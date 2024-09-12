@@ -20,6 +20,12 @@ public static class EventManager
 
     public static event UnityAction<string, GameObject> OnTeamChangeAutomaticAnimations;
     public static void TeamChangeAutomaticAnimations(string team_color, GameObject building_obj) => OnTeamChangeAutomaticAnimations?.Invoke(team_color, building_obj);
+
+    public static event UnityAction OnSceneReload;
+    public static void SceneReload() => OnSceneReload?.Invoke();
+
+    public static event UnityAction<string> OnTransitionStart;
+    public static void TransitionStart(string scene_name) => OnTransitionStart?.Invoke(scene_name);
     #region Test Events
 
     public static event UnityAction<string> OnMouseClickToCapture;

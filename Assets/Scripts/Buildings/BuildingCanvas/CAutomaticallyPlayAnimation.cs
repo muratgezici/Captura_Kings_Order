@@ -9,8 +9,18 @@ public class CAutomaticallyPlayAnimation : MonoBehaviour
     private void Start()
     {
         gameObject.GetComponent<MMF_Player>().PlayFeedbacks();
-             
+
+        EnableOnTeamChangeAutomaticAnimations();
+    }
+    public void EnableOnTeamChangeAutomaticAnimations()
+    {
+        EventManager.OnSceneReload += DisableOnTeamChangeAutomaticAnimations;
         EventManager.OnTeamChangeAutomaticAnimations += PlayAnimations;
+    }
+    public void DisableOnTeamChangeAutomaticAnimations()
+    {
+        EventManager.OnSceneReload -= DisableOnTeamChangeAutomaticAnimations;
+        EventManager.OnTeamChangeAutomaticAnimations -= PlayAnimations;
     }
     public void PlayAnimations(string team_color, GameObject parent)
     {

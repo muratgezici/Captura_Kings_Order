@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CTopRightPanel : MonoBehaviour
 {
@@ -15,6 +16,17 @@ public class CTopRightPanel : MonoBehaviour
     {
         gameObject.SetActive(true);
         Time.timeScale = 0f;
+    }
+    public void RestartLevel()
+    {
+        Time.timeScale = 1f;
+        EventManager.TransitionStart(SceneManager.GetActiveScene().name);
+       
+    }
+    public void OnMainMenuClicked()
+    {
+        Time.timeScale = 1f;
+        EventManager.TransitionStart("MainMenu");
     }
     public void OpenSettingsPopUp()
     {
