@@ -1,3 +1,4 @@
+using MoreMountains.Feedbacks;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -9,7 +10,7 @@ public class CResourceManager : MonoBehaviour
     private int CoinAmount = 0;
     private int FoodAmount = 0;
     private int IronAmount = 0;
-    private int MoraleAmount = 0;
+    private int MoraleAmount = 50;
 
     [SerializeField] private GameObject WoodText;
     [SerializeField] private GameObject CoinText;
@@ -43,27 +44,42 @@ public class CResourceManager : MonoBehaviour
     public void UpdateWoodAmountByValue(int amount)
     {
         WoodAmount += amount;
-        WoodText.GetComponent<TextMeshProUGUI>().text = "Wood: " + WoodAmount; 
+        WoodText.GetComponent<TextMeshProUGUI>().text = "" + WoodAmount;
+        WoodText.GetComponent<MMF_Player>().PlayFeedbacks();
     }
     public void UpdateCoinAmountByValue(int amount)
     {
         CoinAmount += amount;
-        CoinText.GetComponent<TextMeshProUGUI>().text = "Coin: " + CoinAmount;
+        CoinText.GetComponent<TextMeshProUGUI>().text = "" + CoinAmount;
+        CoinText.GetComponent<MMF_Player>().PlayFeedbacks();
     }
     public void UpdateFoodAmountByValue(int amount)
     {
         FoodAmount += amount;
-        FoodText.GetComponent<TextMeshProUGUI>().text = "Food: " + FoodAmount;
+        FoodText.GetComponent<TextMeshProUGUI>().text = "" + FoodAmount;
+        FoodText.GetComponent<MMF_Player>().PlayFeedbacks();
     }
     public void UpdateIronAmountByValue(int amount)
     {
         IronAmount += amount;
-        IronText.GetComponent<TextMeshProUGUI>().text = "Iron: " + IronAmount;
+        IronText.GetComponent<TextMeshProUGUI>().text = "" + IronAmount;
+        IronText.GetComponent<MMF_Player>().PlayFeedbacks();
     }
     public void UpdateMoraleAmountByValue(int amount)
     {
-        MoraleAmount += amount;
-        MoraleText.GetComponent<TextMeshProUGUI>().text = "Morale: " + MoraleAmount;
+        if(MoraleAmount < 100 && amount > 0)
+        {
+            MoraleAmount += amount;
+            MoraleText.GetComponent<TextMeshProUGUI>().text = "" + MoraleAmount + "/100";
+            MoraleText.GetComponent<MMF_Player>().PlayFeedbacks();
+        }
+        else if (MoraleAmount > 0 && amount < 0)
+        {
+            MoraleAmount += amount;
+            MoraleText.GetComponent<TextMeshProUGUI>().text = "" + MoraleAmount + "/100";
+            MoraleText.transform.GetChild(0).GetComponent<MMF_Player>().PlayFeedbacks();
+        }
+
     }
     #endregion
 }

@@ -16,6 +16,7 @@ public class CBuildingBase : MonoBehaviour
     {
         //For Mouse Testing Delete In Real Game and only use OnBuildingCapture
         EventManager.OnMouseClickToCapture += OnBuildingCapture;
+        OnBuildingCapture(OwnedByColor);
         PlayExtraParticles();
     }
     public void PlayExtraParticles()

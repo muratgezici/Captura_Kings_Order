@@ -964,7 +964,7 @@ GameObject:
   - component: {fileID: 2403017291685660690}
   m_Layer: 7
   m_Name: Building_Shrine
-  m_TagString: Untagged
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
