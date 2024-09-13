@@ -825,6 +825,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4159096638966747815}
   - component: {fileID: 5028889386623636278}
+  - component: {fileID: 7677510984363700226}
   m_Layer: 7
   m_Name: Building_TownHall
   m_TagString: Building
@@ -864,6 +865,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BuildingName: Townhall
   OwnedByColor: yellow
+  BuildingLevel: 1
   MaxTimeForProduction: 4
   UnitsInsideTile: []
   TimeCounter: 0
@@ -877,6 +879,27 @@ MonoBehaviour:
   ResourceType: coin
   AnimationsOnResourceGained: {fileID: 1645022408846869592}
   ResourceIncrementAmount: 1
+--- !u!65 &7677510984363700226
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2554601879285407568}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.5160993, y: 2.014512, z: 1.5590457}
+  m_Center: {x: -0.028659642, y: 0.89066863, z: -0.022313893}
 --- !u!1 &4376326440785540084
 GameObject:
   m_ObjectHideFlags: 0

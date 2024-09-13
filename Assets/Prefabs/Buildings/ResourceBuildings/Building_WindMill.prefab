@@ -112,6 +112,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7308472153343602393}
   - component: {fileID: 1885717474675955961}
+  - component: {fileID: 5621611072204137381}
   m_Layer: 7
   m_Name: Building_WindMill
   m_TagString: Building
@@ -148,8 +149,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2150030088cc97f4caddd322516cd0b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BuildingName: WindMill
+  BuildingName: Windmill
   OwnedByColor: yellow
+  BuildingLevel: 1
   MaxTimeForProduction: 2
   UnitsInsideTile: []
   TimeCounter: 0
@@ -162,6 +164,27 @@ MonoBehaviour:
   ResourceType: grain
   AnimationsOnResourceGained: {fileID: 4566428704255300901}
   ResourceIncrementAmount: 1
+--- !u!65 &5621611072204137381
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2180393785885558351}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.288708, y: 1.4472547, z: 0.9270481}
+  m_Center: {x: -0.0053718686, y: 0.670398, z: 0.036475956}
 --- !u!1 &2791839363565031409
 GameObject:
   m_ObjectHideFlags: 0

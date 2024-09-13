@@ -7,6 +7,7 @@ public class CBuildingBase : MonoBehaviour
     //Colors: green, red, blue(player), yellow(neutral)
     [SerializeField] protected string BuildingName = "";
     [SerializeField] protected string OwnedByColor = "yellow";
+    [SerializeField] protected int BuildingLevel = 1;
     [SerializeField] protected float MaxTimeForProduction = 0;
     [SerializeField] protected List<GameObject> UnitsInsideTile = new List<GameObject>();
     [SerializeField] protected float TimeCounter = 0;
@@ -14,8 +15,6 @@ public class CBuildingBase : MonoBehaviour
     [SerializeField] protected GameObject[] OtherTeamBuildings;
     private void Start()
     {
-        //For Mouse Testing Delete In Real Game and only use OnBuildingCapture
-        EventManager.OnMouseClickToCapture += OnBuildingCapture;
         OnBuildingCapture(OwnedByColor);
         PlayExtraParticles();
     }
@@ -79,4 +78,25 @@ public class CBuildingBase : MonoBehaviour
         }
         PlayExtraParticles();
     }
+
+    #region Getters
+    public string GetBuildingName()
+    {
+        return BuildingName;
+    }
+    public string GetOwnedByColor()
+    {
+        return OwnedByColor;
+    }
+    public int GetBuildingLevel()
+    {
+        return BuildingLevel;
+    }
+    public float GetMaxTimeForProduction()
+    {
+        return MaxTimeForProduction;
+    }
+
+    #endregion
+
 }

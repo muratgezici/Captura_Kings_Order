@@ -962,6 +962,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5247792846463877385}
   - component: {fileID: 2403017291685660690}
+  - component: {fileID: 6375717621446730564}
   m_Layer: 7
   m_Name: Building_Shrine
   m_TagString: Building
@@ -1001,6 +1002,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BuildingName: Shrine
   OwnedByColor: yellow
+  BuildingLevel: 1
   MaxTimeForProduction: 7
   UnitsInsideTile: []
   TimeCounter: 0
@@ -1014,6 +1016,27 @@ MonoBehaviour:
   ResourceType: morale
   AnimationsOnResourceGained: {fileID: 3345137294840820246}
   ResourceIncrementAmount: 1
+--- !u!65 &6375717621446730564
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5897613921170919599}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.2851386, y: 0.9337663, z: 1}
+  m_Center: {x: -0.42494893, y: 0.38921896, z: 0}
 --- !u!1001 &289915515732802505
 PrefabInstance:
   m_ObjectHideFlags: 0

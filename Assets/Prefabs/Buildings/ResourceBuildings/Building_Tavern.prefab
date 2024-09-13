@@ -45,6 +45,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6631332143450929965}
   - component: {fileID: 682337567207040633}
+  - component: {fileID: 2503909965999844310}
   m_Layer: 7
   m_Name: Building_Tavern
   m_TagString: Building
@@ -84,6 +85,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BuildingName: Tavern
   OwnedByColor: yellow
+  BuildingLevel: 1
   MaxTimeForProduction: 5
   UnitsInsideTile: []
   TimeCounter: 0
@@ -97,6 +99,27 @@ MonoBehaviour:
   ResourceType: morale
   AnimationsOnResourceGained: {fileID: 7608489686638940014}
   ResourceIncrementAmount: 1
+--- !u!65 &2503909965999844310
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6020337276092930529}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.212944, y: 1.4037035, z: 1.4120882}
+  m_Center: {x: 0.0035302334, y: 0.6436733, z: -0.024974823}
 --- !u!1 &7272351188669686813
 GameObject:
   m_ObjectHideFlags: 0

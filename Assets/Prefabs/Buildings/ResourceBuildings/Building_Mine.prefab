@@ -927,6 +927,7 @@ GameObject:
   m_Component:
   - component: {fileID: 835404944300227165}
   - component: {fileID: 1607370326957189509}
+  - component: {fileID: 5983490400636304500}
   m_Layer: 7
   m_Name: Building_Mine
   m_TagString: Building
@@ -965,6 +966,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BuildingName: Mine
   OwnedByColor: yellow
+  BuildingLevel: 1
   MaxTimeForProduction: 4
   UnitsInsideTile: []
   TimeCounter: 0
@@ -977,6 +979,27 @@ MonoBehaviour:
   ResourceType: iron
   AnimationsOnResourceGained: {fileID: 2333684726928484600}
   ResourceIncrementAmount: 1
+--- !u!65 &5983490400636304500
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5149508314570482875}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.6603127, y: 1.3551502, z: 1.9321643}
+  m_Center: {x: -0.026710987, y: 0.54519236, z: 0.11702591}
 --- !u!1 &8521282873983256330
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,7 +10,7 @@ public class CResourceManager : MonoBehaviour
     private int CoinAmount = 0;
     private int FoodAmount = 0;
     private int IronAmount = 0;
-    private int MoraleAmount = 50;
+    private int MoraleAmount = 20;
 
     [SerializeField] private GameObject WoodText;
     [SerializeField] private GameObject CoinText;
@@ -74,12 +74,14 @@ public class CResourceManager : MonoBehaviour
             MoraleAmount += amount;
             MoraleText.GetComponent<TextMeshProUGUI>().text = "" + MoraleAmount + "/100";
             MoraleText.GetComponent<MMF_Player>().PlayFeedbacks();
+            EventManager.MoraleChanged(MoraleAmount);
         }
         else if (MoraleAmount > 0 && amount < 0)
         {
             MoraleAmount += amount;
             MoraleText.GetComponent<TextMeshProUGUI>().text = "" + MoraleAmount + "/100";
             MoraleText.transform.GetChild(0).GetComponent<MMF_Player>().PlayFeedbacks();
+            EventManager.MoraleChanged(MoraleAmount);
         }
 
     }

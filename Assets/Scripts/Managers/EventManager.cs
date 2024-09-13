@@ -17,6 +17,9 @@ public static class EventManager
     public static event UnityAction<int> OnUpdateMoraleAmount;
     public static void UpdateMoraleAmount(int resource_amount) => OnUpdateMoraleAmount?.Invoke(resource_amount);
 
+    public static event UnityAction<int> OnMoraleChanged;
+    public static void MoraleChanged(int resource_amount) => OnMoraleChanged?.Invoke(resource_amount);
+
 
     public static event UnityAction<string, GameObject> OnTeamChangeAutomaticAnimations;
     public static void TeamChangeAutomaticAnimations(string team_color, GameObject building_obj) => OnTeamChangeAutomaticAnimations?.Invoke(team_color, building_obj);
