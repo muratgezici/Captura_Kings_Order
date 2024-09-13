@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CSoldierUnitCombat : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class CSoldierUnitCombat : MonoBehaviour
     [SerializeField] protected float UnitAttackPower = 10f;
     [SerializeField] protected float UnitAttackSpeed = 1.2f;
     [SerializeField] protected GameObject AnimationHandler;
+    [SerializeField] protected GameObject HealthBarGreen;
     private float AttackTimer = 0;
     private void OnTriggerEnter(Collider other)
     {
@@ -105,8 +107,12 @@ public class CSoldierUnitCombat : MonoBehaviour
     public void DecreaseHealth(float value)
     {
         UnitHealth -= value;
-        if(UnitHealth <= 0)
+        float healthPercentage = UnitHealth / UnitMaxHealth;
+        HealthBarGreen.transform.parent.transform.parent.transform.gameObject.SetActive(true);
+        HealthBarGreen.GetComponent<Image>().fillAmount = healthPercentage;
+        if (UnitHealth <= 0)
         {
+            HealthBarGreen.transform.parent.transform.parent.transform.gameObject.SetActive(false);
             Destroy(gameObject.transform.parent.gameObject);
         }
     }

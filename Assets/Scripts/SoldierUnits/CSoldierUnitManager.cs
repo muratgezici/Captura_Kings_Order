@@ -26,6 +26,7 @@ public class CSoldierUnitManager : MonoBehaviour
     [SerializeField] private CSoldierUnitCombat SoldierUnitCombat;
     [SerializeField] private CSoldierUnitBase SoldierUnitBase;
     [SerializeField] private GameObject BasePositionObject;
+    [SerializeField] private GameObject BottomCircleOnSelectedObject;
 
     private bool IsSoldierUnitSelected = false;
     private bool IsOnBasePosition = true;
@@ -35,7 +36,7 @@ public class CSoldierUnitManager : MonoBehaviour
     public void SetIsSoldierUnitSelected(bool value)
     {
         IsSoldierUnitSelected = value;
-        Debug.Log("SelectedArmyUnit: " + IsSoldierUnitSelected);
+        BottomCircleOnSelectedObject.SetActive(value);
     }
     public bool GetIsSoldierUnitSelected()
     {

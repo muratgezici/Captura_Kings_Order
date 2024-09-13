@@ -142,6 +142,7 @@ MonoBehaviour:
   SoldierUnitCombat: {fileID: 4960766806932610402}
   SoldierUnitBase: {fileID: 8174157285988101312}
   BasePositionObject: {fileID: 0}
+  BottomCircleOnSelectedObject: {fileID: 4146252648352121143}
 --- !u!1 &3813536356467091143
 GameObject:
   m_ObjectHideFlags: 0
@@ -195,6 +196,7 @@ MonoBehaviour:
   UnitAttackPower: 5
   UnitAttackSpeed: 1.2
   AnimationHandler: {fileID: 9026283089133650704}
+  HealthBarGreen: {fileID: 5447859322864313295}
 --- !u!136 &2766071515866089489
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -262,7 +264,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8308329422547567157
 RectTransform:
   m_ObjectHideFlags: 0
@@ -332,7 +334,7 @@ GameObject:
   - component: {fileID: 9121389740669785442}
   - component: {fileID: 482763107908015314}
   m_Layer: 5
-  m_Name: HealthBarRed
+  m_Name: HealthBarGreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -378,7 +380,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.24644172, b: 0, a: 1}
+  m_Color: {r: 0.6646564, g: 1, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -390,9 +392,9 @@ MonoBehaviour:
   m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0.706
+  m_FillAmount: 1
   m_FillClockwise: 1
-  m_FillOrigin: 0
+  m_FillOrigin: 1
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
 --- !u!1 &6157982980448364995
@@ -551,7 +553,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6421795, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.25563684, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -771,7 +773,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4172928762250529232
 RectTransform:
   m_ObjectHideFlags: 0
