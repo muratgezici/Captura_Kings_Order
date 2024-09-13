@@ -46,10 +46,19 @@ public class CBuildingInfoToUI : MonoBehaviour
         if(Building.GetBuildingName() == "Houses" || Building.GetBuildingName() == "Townhall")
         {
             PopulationPanel.SetActive(true);
+            PopulationAmountText.text = ""+Building.GetPopulation();
         }
         else
         {
             PopulationPanel.SetActive(false);
+        }
+        if(Building.GetOwnedByColor() != "blue")
+        {
+            RightBottomPanel.SetActive(false);
+        }
+        else
+        {
+            RightBottomPanel.SetActive(true);
         }
 
         LVLText.text = "Lvl "+Building.GetBuildingLevel()+"";
@@ -59,20 +68,24 @@ public class CBuildingInfoToUI : MonoBehaviour
         //add morale too!
         float production_per_sec = 0;
         float morale_percentage = 0;
-        if (Building.GetMorale() > 50)
+        if (Building.GetMorale() > 50 && Building.GetOwnedByColor() == "blue")
         {
              production_per_sec = Building.GetResourceIncrementAmount() / (Building.GetMaxTimeForProduction() - Building.GetMaxTimeForProduction() * Building.GetMoralePercentage());
              morale_percentage = ((Building.GetMorale()-50) / 50f) * 20f;
 
         }
-        else if (Building.GetMorale() < 50)
+        else if (Building.GetMorale() < 50 && Building.GetOwnedByColor() == "blue")
         {
             production_per_sec = Building.GetResourceIncrementAmount() / (Building.GetMaxTimeForProduction() + Building.GetMaxTimeForProduction() * Building.GetMoralePercentage());
             morale_percentage = -((50-Building.GetMorale()) / 50f) * 30f;
         }
         else
         {
-            production_per_sec = Building.GetResourceIncrementAmount() / Building.GetMaxTimeForProduction();
+            if(Building.GetOwnedByColor() == "blue")
+            {
+                production_per_sec = Building.GetResourceIncrementAmount() / Building.GetMaxTimeForProduction();
+            }
+            
         }
 
         ProductionPerSecondText.text = "Production per second: " + production_per_sec.ToString("F2");

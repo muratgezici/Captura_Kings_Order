@@ -13,11 +13,15 @@ public class CBuildingBase : MonoBehaviour
     [SerializeField] protected float TimeCounter = 0;
     [SerializeField] protected GameObject[] ExtraParticles;
     [SerializeField] protected GameObject[] OtherTeamBuildings;
-    private void Start()
+    [SerializeField] protected int PopulationAmount = 0;
+    protected bool IsOwnedByPlayer = false;
+    protected bool IsPopulationAdded = false;
+    protected virtual void Start()
     {
         OnBuildingCapture(OwnedByColor);
         PlayExtraParticles();
     }
+
     public void PlayExtraParticles()
     {
         if (ExtraParticles.Length != 0)
@@ -44,6 +48,7 @@ public class CBuildingBase : MonoBehaviour
         OwnedByColor = team_color;
         if(OwnedByColor == "yellow")
         {
+            IsOwnedByPlayer = false;
             OtherTeamBuildings[1].SetActive(false);
             OtherTeamBuildings[2].SetActive(false);
             OtherTeamBuildings[3].SetActive(false);
@@ -52,16 +57,17 @@ public class CBuildingBase : MonoBehaviour
         }
         else if (OwnedByColor == "blue")
         {
-           
-            OtherTeamBuildings[0].SetActive(false);
+            IsOwnedByPlayer = true;
+             OtherTeamBuildings[0].SetActive(false);
             OtherTeamBuildings[2].SetActive(false);
             OtherTeamBuildings[3].SetActive(false);
             OtherTeamBuildings[1].SetActive(true);
             EventManager.TeamChangeAutomaticAnimations("blue", gameObject);
+            EventManager.UpdateMaxPopulationAmount(PopulationAmount);
         }
         else if (OwnedByColor == "red")
         {
-            
+            IsOwnedByPlayer = false;
             OtherTeamBuildings[1].SetActive(false);
             OtherTeamBuildings[2].SetActive(true);
             OtherTeamBuildings[3].SetActive(false);
@@ -70,6 +76,7 @@ public class CBuildingBase : MonoBehaviour
         }
         else if (OwnedByColor == "green")
         {
+            IsOwnedByPlayer = false;
             OtherTeamBuildings[1].SetActive(false);
             OtherTeamBuildings[0].SetActive(false);
             OtherTeamBuildings[2].SetActive(false);
@@ -77,8 +84,27 @@ public class CBuildingBase : MonoBehaviour
             EventManager.TeamChangeAutomaticAnimations("green", gameObject);
         }
         PlayExtraParticles();
+       
     }
-
+    public void ChangeMaximumPopulation()
+    {
+        if(IsOwnedByPlayer && !IsPopulationAdded)
+        {
+            IsPopulationAdded = true;
+            if(PopulationAmount != 0)
+            {
+                EventManager.UpdateMaxPopulationAmount(PopulationAmount);
+            }
+        }
+        else if(!IsOwnedByPlayer && IsPopulationAdded)
+        {
+            IsPopulationAdded = false;
+            if (PopulationAmount != 0)
+            {
+                EventManager.UpdateMaxPopulationAmount(-PopulationAmount);
+            }
+        }
+    }
     #region Getters
     public string GetBuildingName()
     {
@@ -95,6 +121,10 @@ public class CBuildingBase : MonoBehaviour
     public float GetMaxTimeForProduction()
     {
         return MaxTimeForProduction;
+    }
+    public int GetPopulation()
+    {
+        return PopulationAmount;
     }
 
     #endregion

@@ -61,6 +61,7 @@ MonoBehaviour:
   - {fileID: 4651158089875117852}
   - {fileID: 8272681576244937129}
   - {fileID: 6926219271280110026}
+  PopulationAmount: 0
   ResourceType: morale
   AnimationsOnResourceGained: {fileID: 1390529899845333729}
   ResourceIncrementAmount: 1

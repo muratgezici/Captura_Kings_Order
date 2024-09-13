@@ -10,13 +10,16 @@ public class CResourceManager : MonoBehaviour
     private int CoinAmount = 0;
     private int FoodAmount = 0;
     private int IronAmount = 0;
-    private int MoraleAmount = 20;
+    private int MoraleAmount = 50;
+    private int MaxPopulationAmount = 15;
+    private int CurrentPopulation = 0;
 
     [SerializeField] private GameObject WoodText;
     [SerializeField] private GameObject CoinText;
     [SerializeField] private GameObject FoodText;
     [SerializeField] private GameObject IronText;
     [SerializeField] private GameObject MoraleText;
+    [SerializeField] private GameObject PopulationText;
 
     private void Start()
     {
@@ -31,6 +34,8 @@ public class CResourceManager : MonoBehaviour
         EventManager.OnUpdateFoodAmount += UpdateFoodAmountByValue;
         EventManager.OnUpdateIronAmount += UpdateIronAmountByValue;
         EventManager.OnUpdateMoraleAmount += UpdateMoraleAmountByValue;
+        EventManager.OnUpdatePopulationAmount += UpdatePopulationAmountByValue;
+        EventManager.OnUpdateMaxPopulationAmount += UpdateMaxPopulationAmountByValue;
     }
     public void DisableResourceManagement()
     {
@@ -40,6 +45,8 @@ public class CResourceManager : MonoBehaviour
         EventManager.OnUpdateIronAmount -= UpdateIronAmountByValue;
         EventManager.OnUpdateMoraleAmount -= UpdateMoraleAmountByValue;
         EventManager.OnSceneReload -= DisableResourceManagement;
+        EventManager.OnUpdatePopulationAmount -= UpdatePopulationAmountByValue;
+        EventManager.OnUpdateMaxPopulationAmount -= UpdateMaxPopulationAmountByValue;
     }
     #endregion
     #region Update Resource Amounts
@@ -84,6 +91,31 @@ public class CResourceManager : MonoBehaviour
             EventManager.MoraleChanged(MoraleAmount);
         }
 
+    }
+    public void UpdatePopulationAmountByValue(int amount)
+    {
+        if (CurrentPopulation < MaxPopulationAmount && amount > 0)
+        {
+            CurrentPopulation += amount;
+            PopulationText.GetComponent<TextMeshProUGUI>().text = "" + CurrentPopulation + "/"+ MaxPopulationAmount;
+            PopulationText.GetComponent<MMF_Player>().PlayFeedbacks();
+            
+        }
+        else if (amount < 0)
+        {
+            CurrentPopulation -= amount;
+            PopulationText.GetComponent<TextMeshProUGUI>().text = "" + CurrentPopulation + "/"+ MaxPopulationAmount;
+            PopulationText.transform.GetChild(0).GetComponent<MMF_Player>().PlayFeedbacks();
+            
+        }
+
+    }
+    public void UpdateMaxPopulationAmountByValue(int amount)
+    {
+        
+            MaxPopulationAmount += amount;
+            PopulationText.GetComponent<TextMeshProUGUI>().text = "" + CurrentPopulation + "/" + MaxPopulationAmount;
+            PopulationText.GetComponent<MMF_Player>().PlayFeedbacks();
     }
     #endregion
 }

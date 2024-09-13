@@ -12,8 +12,10 @@ public class CResourceBuilding : CBuildingBase
     private float UpdatedMaxTimeForProduction = 0;
     private float MoraleEffectPercentage;
 
-    private void Start()
+
+    protected override void Start()
     {
+        base.Start();
         OnEventEnable();
     }
     public void OnEventEnable()
@@ -28,6 +30,10 @@ public class CResourceBuilding : CBuildingBase
     }
     public void UpdateMorale(int value)
     {
+        if(OwnedByColor != "blue")
+        {
+            return;
+        }
         Morale = value;
         if(Morale > 50)
         {
@@ -51,6 +57,7 @@ public class CResourceBuilding : CBuildingBase
     private void Update()
     {
         ResourceGainAction();
+        ChangeMaximumPopulation();
     }
     public void ResourceGainAction()
     {
@@ -92,6 +99,7 @@ public class CResourceBuilding : CBuildingBase
         }
 
     }
+   
     #region Getters
     public string GetResourceType()
     {

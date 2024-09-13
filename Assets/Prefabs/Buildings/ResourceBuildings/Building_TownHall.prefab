@@ -876,6 +876,7 @@ MonoBehaviour:
   - {fileID: 9204529531811136130}
   - {fileID: 8145638085804279322}
   - {fileID: 4945692366215304429}
+  PopulationAmount: 15
   ResourceType: coin
   AnimationsOnResourceGained: {fileID: 1645022408846869592}
   ResourceIncrementAmount: 1

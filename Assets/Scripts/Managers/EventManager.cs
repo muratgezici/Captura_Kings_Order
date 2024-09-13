@@ -17,6 +17,12 @@ public static class EventManager
     public static event UnityAction<int> OnUpdateMoraleAmount;
     public static void UpdateMoraleAmount(int resource_amount) => OnUpdateMoraleAmount?.Invoke(resource_amount);
 
+    public static event UnityAction<int> OnUpdatePopulationAmount;
+    public static void UpdatePopulationAmount(int resource_amount) => OnUpdatePopulationAmount?.Invoke(resource_amount);
+
+    public static event UnityAction<int> OnUpdateMaxPopulationAmount;
+    public static void UpdateMaxPopulationAmount(int resource_amount) => OnUpdateMaxPopulationAmount?.Invoke(resource_amount);
+
     public static event UnityAction<int> OnMoraleChanged;
     public static void MoraleChanged(int resource_amount) => OnMoraleChanged?.Invoke(resource_amount);
 
