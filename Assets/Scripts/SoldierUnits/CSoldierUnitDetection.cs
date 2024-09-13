@@ -6,7 +6,8 @@ public class CSoldierUnitDetection : MonoBehaviour
 {
     [SerializeField] private List<GameObject> EnemyUnitsNear = new List<GameObject>();
     [SerializeField] private int EnemyUnitNearCount = 0;
-    [SerializeField] private CSoldierUnitCombat UnitCombat;
+    [SerializeField] private bool IsInsideEnemyDetectionState = false;
+
     private void OnTriggerEnter(Collider other)
     {
         if (EnemyUnitNearCount > 5 || !other.CompareTag("SoldierUnit"))
@@ -35,11 +36,10 @@ public class CSoldierUnitDetection : MonoBehaviour
             EnemyUnitNearCount--;
         }
     }
-
-    private void Update()
+    public GameObject GetNearestEnemy()
     {
         GameObject closest_enemy = null;
-        float min_dist = 11110;
+        float min_dist = 99999;
         foreach (GameObject enemy_unit in EnemyUnitsNear)
         {
             if (enemy_unit == null)
@@ -64,14 +64,7 @@ public class CSoldierUnitDetection : MonoBehaviour
             }
         }
         EnemyUnitNearCount = EnemyUnitsNear.Count;
-        if (EnemyUnitNearCount != 0 && UnitCombat.GetEnemyUnitsNear() == 0)
-        {
-            InformSoldierUnitMove(closest_enemy);
-        }
+        return closest_enemy;
     }
-    public void InformSoldierUnitMove(GameObject enemy_unit)
-    {
-        gameObject.transform.parent.GetComponent<CSoldierUnitMove>().EnemyAgentDetected(enemy_unit);
-        
-    }
+  
 }

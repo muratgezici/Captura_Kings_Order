@@ -42,17 +42,21 @@ public class CSoldierUnitCombat : MonoBehaviour
     }
     private void Update()
     {
+        
+    }
+    public GameObject GetCombatRangeEnemy()
+    {
         GameObject closest_enemy = null;
-        float min_dist = 11110;
+        float min_dist = 9999;
         foreach (GameObject enemy_unit in EnemyUnitsNear)
         {
-            if(enemy_unit == null)
+            if (enemy_unit == null)
             {
                 EnemyUnitNearCount--;
             }
             else
             {
-             float dist =  Vector2.Distance(new Vector2(transform.position.x, transform.position.y), new Vector2(enemy_unit.transform.position.x, enemy_unit.transform.position.y));
+                float dist = Vector2.Distance(new Vector2(transform.position.x, transform.position.y), new Vector2(enemy_unit.transform.position.x, enemy_unit.transform.position.y));
                 if (dist < min_dist)
                 {
                     min_dist = dist;
@@ -70,21 +74,33 @@ public class CSoldierUnitCombat : MonoBehaviour
         EnemyUnitNearCount = EnemyUnitsNear.Count;
         if (EnemyUnitNearCount != 0)
         {
-            InitiateCombat(closest_enemy);
+            return closest_enemy;
         }
+        return null;
     }
-    public void InitiateCombat(GameObject enemy_unit)
+    public bool InitiateCombat(GameObject enemy_unit)
     {
-        gameObject.transform.parent.GetComponent<CSoldierUnitMove>().AgentInCombat(enemy_unit.transform.position);
+        if(enemy_unit != null)
+        {
+
+            InstantlyTurn(enemy_unit.transform.position);
+        }
+        else
+        {
+            return false;
+        }
+        
         AttackTimer += Time.deltaTime;
         float attack_speed_random_number = Random.Range(UnitAttackSpeed-0.2f, UnitAttackSpeed + 0.2f);
         if (AttackTimer > attack_speed_random_number)
         {
             AnimationHandler.GetComponent<CSoldierUnitAnimation>().AnimateAttackAnimation();
-            Debug.Log("Attacker: " + gameObject.name + " Attacked: " + enemy_unit.name);
+            //Debug.Log("Attacker: " + gameObject.name + " Attacked: " + enemy_unit.name);
             AttackTimer = 0;
             enemy_unit.gameObject.GetComponent<CSoldierUnitBase>().DecreaseHealth(UnitAttackPower);
+            return true;
         }
+        return false;
     }
     public void DecreaseHealth(float value)
     {
@@ -97,6 +113,21 @@ public class CSoldierUnitCombat : MonoBehaviour
     public int GetEnemyUnitsNear()
     {
         return EnemyUnitNearCount;
+    }
+    public void SetAttackTimer(float timer)
+    {
+        AttackTimer = timer;
+    }
+    public void InstantlyTurn(Vector3 destination)
+    {
+        //When on target -> dont rotate!
+
+        if ((destination - transform.position).magnitude < 0.1f) return;
+
+        Vector3 direction = (destination - transform.position).normalized;
+        Quaternion qDir = Quaternion.LookRotation(direction);
+
+        transform.rotation = Quaternion.Slerp(transform.rotation, qDir, Time.deltaTime * 200000f);
     }
     //Trigger enter düþman listesine düþman ekler
     //Attack coroutine i düþman listesindeki en yakýn düþmana saldýrýr, eðer en yakýn düþman nullsa (exit yapmadan öldüyse) onu listeden çýkarýr ve en yakýndakine saldýrma

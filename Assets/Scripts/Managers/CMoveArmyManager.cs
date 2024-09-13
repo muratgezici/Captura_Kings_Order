@@ -5,31 +5,49 @@ using UnityEngine.AI;
 
 public class CMoveArmyManager : MonoBehaviour
 {
-    [SerializeField] private GameObject[] ALLAGENTS;
+    [SerializeField] private List<GameObject> SELECTEDAGENTS = new List<GameObject>();
     private void Update()
     {
+        
+        
         if (Input.GetMouseButtonDown(1))
         {
-            MoveAllAgents();
+            foreach (GameObject obj in GameObject.FindGameObjectsWithTag("SoldierUnit"))
+            {
+                if (obj.GetComponent<CSoldierUnitManager>().GetIsSoldierUnitSelected())
+                {
+                    SELECTEDAGENTS.Add(obj);
+                }
+            }
+            MoveSelectedAgents();
         }
     }
 
-    public void MoveAllAgents() //Use only for testing purposes!
+    public void MoveSelectedAgents() 
     {
         RaycastHit hit;
         if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
         {
-            foreach (var agentobj in ALLAGENTS)
+            for (int i = SELECTEDAGENTS.Count - 1; i >= 0; i--)
+            {
+                if (SELECTEDAGENTS[i] == null || !SELECTEDAGENTS[i].GetComponent<CSoldierUnitManager>().GetIsSoldierUnitSelected())
+                {
+                    SELECTEDAGENTS.Remove(SELECTEDAGENTS[i]);
+
+                }
+            }
+            foreach (var agentobj in SELECTEDAGENTS)
             {
                 if(agentobj == null)
                 {
                     continue;
                 }
-                agentobj.GetComponent<CSoldierUnitMove>().SetDestinationHexagon(hit.transform.gameObject);
-                NavMeshAgent agent = agentobj.GetComponent<NavMeshAgent>();
-                agent.destination = hit.point;
+                
+                agentobj.GetComponent<CSoldierUnitManager>().MoveToDestination(hit);
+
                
             }
+            
             
         }
     }
