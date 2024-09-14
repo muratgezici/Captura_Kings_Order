@@ -789,7 +789,7 @@ MonoBehaviour:
   BuildingName: Lumbermill
   OwnedByColor: yellow
   BuildingLevel: 1
-  MaxTimeForProduction: 3
+  MaxTimeForProduction: 2
   UnitsInsideTile: []
   TimeCounter: 0
   ExtraParticles: []
@@ -803,6 +803,9 @@ MonoBehaviour:
   ResourceType: wood
   AnimationsOnResourceGained: {fileID: 3549619493457499592}
   ResourceIncrementAmount: 1
+  WoodCostForUpgrade: 1
+  IronCostForUpgrade: 1
+  CoinCostForUpgrade: 3
 --- !u!65 &2222445276088379680
 BoxCollider:
   m_ObjectHideFlags: 0

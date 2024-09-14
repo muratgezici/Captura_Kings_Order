@@ -101,6 +101,9 @@ MonoBehaviour:
   ResourceType: morale
   AnimationsOnResourceGained: {fileID: 7608489686638940014}
   ResourceIncrementAmount: 1
+  WoodCostForUpgrade: 3
+  IronCostForUpgrade: 1
+  CoinCostForUpgrade: 5
 --- !u!65 &2503909965999844310
 BoxCollider:
   m_ObjectHideFlags: 0

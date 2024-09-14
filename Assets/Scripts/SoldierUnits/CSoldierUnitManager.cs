@@ -226,6 +226,16 @@ public class CSoldierUnitManager : MonoBehaviour
         InStateCheck = false;
         _CurrentState = SoldierUnitState.MoveToDestination;
     }
+    public void MoveToDestinationAfterProduced(GameObject hit)
+    {
+        //combat valuelarý da sýfýrlamalý
+        SoldierUnitCombat.SetAttackTimer(0);
+        NavMeshAgent agent = gameObject.GetComponent<NavMeshAgent>();
+        agent.destination = hit.transform.position;
+        SoldierUnitMoveScript.SetMoveToClickedPosition(hit);
+        InStateCheck = false;
+        _CurrentState = SoldierUnitState.MoveToDestination;
+    }
     public void MoveToDestinationAfterChase(GameObject hit)
     {
         //combat valuelarý da sýfýrlamalý

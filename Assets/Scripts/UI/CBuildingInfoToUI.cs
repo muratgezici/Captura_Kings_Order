@@ -1,3 +1,4 @@
+using MoreMountains.Feedbacks;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -8,7 +9,6 @@ public class CBuildingInfoToUI : MonoBehaviour
 {
     [SerializeField] private CResourceManager ResourceManager;
     private CResourceBuilding Building;
-    private CMilitaryBuilding MilBuilding;
     [SerializeField] private TextMeshProUGUI LVLText;
     [SerializeField] private TextMeshProUGUI BuildingNameText;
     [SerializeField] private Image BuildingImage;
@@ -24,7 +24,7 @@ public class CBuildingInfoToUI : MonoBehaviour
 
     [SerializeField] private GameObject PopulationPanel;
     [SerializeField] private GameObject RightBottomPanel;
-
+    [SerializeField] private MMF_Player OnSuccesfullUpgradePlay;
    
 
     public void SetBuilding(GameObject building)
@@ -33,11 +33,6 @@ public class CBuildingInfoToUI : MonoBehaviour
         {
             Building = building.GetComponent<CResourceBuilding>();
             UpdateResourceInfoPanel();
-        }
-        else if (building.GetComponent<CMilitaryBuilding>() != null)
-        {
-            MilBuilding = building.GetComponent<CMilitaryBuilding>();
-
         }
 
     }
@@ -61,8 +56,15 @@ public class CBuildingInfoToUI : MonoBehaviour
         {
             RightBottomPanel.SetActive(true);
         }
-
-        LVLText.text = "Lvl "+Building.GetBuildingLevel()+"";
+        if (Building.GetBuildingLevel() == -1)
+        {
+            LVLText.text = "Max Level";
+        }
+        else
+        {
+            LVLText.text = "Lvl " + Building.GetBuildingLevel() + "";
+        }
+        
         BuildingNameText.text = ""+Building.GetBuildingName();
         BuildingImage.sprite = Building.GetImageSprite();
         ResourceTypeText.text = "Resource type: "+Building.GetResourceType();
@@ -93,7 +95,52 @@ public class CBuildingInfoToUI : MonoBehaviour
         ProductionPerSecondText.text = "Production per second: " + production_per_sec.ToString("F2");
         ProductionExplanationText.text = Building.GetResourceIncrementAmount() + " (Production amount per cycle) / " + Building.GetMaxTimeForProduction() +
             " (produce in every " + Building.GetMaxTimeForProduction() + " seconds) x Morale modifier (" + morale_percentage.ToString("F") + "%) = " + production_per_sec.ToString("F2");
-        UpgradeToLevelText.text = "Upgrade to lvl " + Building.GetBuildingLevel();
+        if(Building.GetBuildingLevel() == -1)
+        {
+            UpgradeToLevelText.text = "Max Level Reached!";
+            WhatToGetAfterUpgradeText.text = "";
+            WoodCostText.transform.parent.gameObject.SetActive(false);
+            GoldCostText.transform.parent.gameObject.SetActive(false);
+            IronCostText.transform.parent.gameObject.SetActive(false);
+        }
+        else
+        {
+            int level = Building.GetBuildingLevel() + 1;
+            UpgradeToLevelText.text = "Upgrade to lvl " + (level);
+            WhatToGetAfterUpgradeText.text = Building.GetUpgradeText();
+            WoodCostText.text = ""+Building.GetWoodCostForUpgrade();
+            GoldCostText.text =""+Building.GetCoinCostForUpgrade();
+            IronCostText.text =""+Building.GetIronCostForUpgrade();
+
+            WoodCostText.transform.parent.gameObject.SetActive(true);
+            GoldCostText.transform.parent.gameObject.SetActive(true);
+            IronCostText.transform.parent.gameObject.SetActive(true);
+        }
+        
+
+
+    }
+
+    public void OnUpgradeButtonClicked()
+    {
+        if (Building.GetBuildingLevel() == -1)
+        {
+            return;
+        }
+        int ResourceWood = ResourceManager.GetWoodAmount();
+        int ResourceCoin = ResourceManager.GetCoinAmount();
+        int ResourceIron = ResourceManager.GetIronAmount();
+        if(Building.GetCoinCostForUpgrade() < ResourceCoin && Building.GetWoodCostForUpgrade() < ResourceWood && Building.GetIronCostForUpgrade() < ResourceIron)
+        {
+            EventManager.UpdateWoodAmount(-Building.GetWoodCostForUpgrade());
+            EventManager.UpdateIronAmount(-Building.GetIronCostForUpgrade());
+            EventManager.UpdateCoinAmount(-Building.GetCoinCostForUpgrade());
+
+            Building.OnBuildingUpgrade();
+            UpdateResourceInfoPanel();
+            OnSuccesfullUpgradePlay.PlayFeedbacks();
+        }
+        
 
 
     }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -136,6 +137,8 @@ public class CMilitaryBuilding : CBuildingBase
                     ProductionCount0--;
                     GameObject unit = Instantiate(UnitsToProduce[0], ProducePoint.transform.position, Quaternion.identity);
                     unit.GetComponent<CSoldierUnitBase>().SetOwnedByColor(OwnedByColor);
+                    float rand = Random.Range(-0.1f, 0.1f);
+                    unit.transform.position += new Vector3(rand, 0, rand);
                     EventManager.ArmyProductionFinished(gameObject.GetComponent<CMilitaryBuilding>());
                     Debug.Log("produced");
                     if(ProductionCount0 == 0)
@@ -161,6 +164,8 @@ public class CMilitaryBuilding : CBuildingBase
                     ProductionCount1--;
                     GameObject unit = Instantiate(UnitsToProduce[1], ProducePoint.transform.position, Quaternion.identity);
                     unit.GetComponent<CSoldierUnitBase>().SetOwnedByColor(OwnedByColor);
+                    float rand = Random.Range(-0.1f,0.1f);
+                    unit.transform.position += new Vector3(rand, 0, rand);
                     EventManager.ArmyProductionFinished(gameObject.GetComponent<CMilitaryBuilding>());
                     if (ProductionCount1 == 0)
                     {

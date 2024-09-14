@@ -881,6 +881,9 @@ MonoBehaviour:
   ResourceType: coin
   AnimationsOnResourceGained: {fileID: 1645022408846869592}
   ResourceIncrementAmount: 1
+  WoodCostForUpgrade: 1
+  IronCostForUpgrade: 3
+  CoinCostForUpgrade: 3
 --- !u!65 &7677510984363700226
 BoxCollider:
   m_ObjectHideFlags: 0

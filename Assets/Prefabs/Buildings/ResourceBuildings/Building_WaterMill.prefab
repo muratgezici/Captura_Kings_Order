@@ -50,7 +50,7 @@ MonoBehaviour:
   BuildingName: Watermill
   OwnedByColor: yellow
   BuildingLevel: 1
-  MaxTimeForProduction: 2
+  MaxTimeForProduction: 3
   UnitsInsideTile: []
   TimeCounter: 0
   ExtraParticles: []
@@ -64,6 +64,9 @@ MonoBehaviour:
   ResourceType: grain
   AnimationsOnResourceGained: {fileID: 8110021368710525231}
   ResourceIncrementAmount: 1
+  WoodCostForUpgrade: 5
+  IronCostForUpgrade: 1
+  CoinCostForUpgrade: 1
 --- !u!65 &4951706741219148630
 BoxCollider:
   m_ObjectHideFlags: 0

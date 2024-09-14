@@ -98,6 +98,7 @@ public class CMilitaryBuildingToUI : MonoBehaviour
             }
             
             SoldierUnitName1Text.text = produceable_units[0].GetComponent<CSoldierUnitBase>().GetSoldierName();
+            SoldierUnit1Image.sprite = MilBuilding.GetSoldierUnitSprites()[0];
             UnitFood1Text.text = produceable_units[0].GetComponent<CSoldierUnitBase>().GetFoodCost() + "";
             UnitWood1Text.text = produceable_units[0].GetComponent<CSoldierUnitBase>().GetWoodCost() + "";
             UnitIron1Text.text = produceable_units[0].GetComponent<CSoldierUnitBase>().GetIronCost() + "";
@@ -123,6 +124,7 @@ public class CMilitaryBuildingToUI : MonoBehaviour
                 CancelButton1.SetActive(false);
             }
             SoldierUnitName2Text.text = produceable_units[1].GetComponent<CSoldierUnitBase>().GetSoldierName();
+            SoldierUnit2Image.sprite = MilBuilding.GetSoldierUnitSprites()[1];
             UnitFood2Text.text = produceable_units[1].GetComponent<CSoldierUnitBase>().GetFoodCost() + "";
             UnitWood2Text.text = produceable_units[1].GetComponent<CSoldierUnitBase>().GetWoodCost() + "";
             UnitIron2Text.text = produceable_units[1].GetComponent<CSoldierUnitBase>().GetIronCost() + "";

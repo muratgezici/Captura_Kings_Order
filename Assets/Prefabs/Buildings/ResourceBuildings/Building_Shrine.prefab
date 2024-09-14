@@ -1003,7 +1003,7 @@ MonoBehaviour:
   BuildingName: Shrine
   OwnedByColor: yellow
   BuildingLevel: 1
-  MaxTimeForProduction: 7
+  MaxTimeForProduction: 12
   UnitsInsideTile: []
   TimeCounter: 0
   ExtraParticles:
@@ -1018,6 +1018,9 @@ MonoBehaviour:
   ResourceType: morale
   AnimationsOnResourceGained: {fileID: 3345137294840820246}
   ResourceIncrementAmount: 1
+  WoodCostForUpgrade: 1
+  IronCostForUpgrade: 0
+  CoinCostForUpgrade: 1
 --- !u!65 &6375717621446730564
 BoxCollider:
   m_ObjectHideFlags: 0

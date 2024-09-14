@@ -152,7 +152,7 @@ MonoBehaviour:
   BuildingName: Windmill
   OwnedByColor: yellow
   BuildingLevel: 1
-  MaxTimeForProduction: 2
+  MaxTimeForProduction: 3
   UnitsInsideTile: []
   TimeCounter: 0
   ExtraParticles: []
@@ -166,6 +166,9 @@ MonoBehaviour:
   ResourceType: grain
   AnimationsOnResourceGained: {fileID: 4566428704255300901}
   ResourceIncrementAmount: 1
+  WoodCostForUpgrade: 5
+  IronCostForUpgrade: 1
+  CoinCostForUpgrade: 1
 --- !u!65 &5621611072204137381
 BoxCollider:
   m_ObjectHideFlags: 0

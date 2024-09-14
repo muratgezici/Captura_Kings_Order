@@ -967,7 +967,7 @@ MonoBehaviour:
   BuildingName: Mine
   OwnedByColor: yellow
   BuildingLevel: 1
-  MaxTimeForProduction: 4
+  MaxTimeForProduction: 5
   UnitsInsideTile: []
   TimeCounter: 0
   ExtraParticles: []
@@ -981,6 +981,9 @@ MonoBehaviour:
   ResourceType: iron
   AnimationsOnResourceGained: {fileID: 2333684726928484600}
   ResourceIncrementAmount: 1
+  WoodCostForUpgrade: 2
+  IronCostForUpgrade: 1
+  CoinCostForUpgrade: 2
 --- !u!65 &5983490400636304500
 BoxCollider:
   m_ObjectHideFlags: 0

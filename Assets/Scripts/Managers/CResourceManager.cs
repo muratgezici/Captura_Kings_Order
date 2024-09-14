@@ -81,25 +81,57 @@ public class CResourceManager : MonoBehaviour
     {
         WoodAmount += amount;
         WoodText.GetComponent<TextMeshProUGUI>().text = "" + WoodAmount;
-        WoodText.GetComponent<MMF_Player>().PlayFeedbacks();
+        if(amount < 0)
+        {
+            WoodText.transform.GetChild(0).GetComponent<MMF_Player>().PlayFeedbacks();
+        }
+        else
+        {
+            WoodText.GetComponent<MMF_Player>().PlayFeedbacks();
+        }
+        
     }
     public void UpdateCoinAmountByValue(int amount)
     {
         CoinAmount += amount;
         CoinText.GetComponent<TextMeshProUGUI>().text = "" + CoinAmount;
-        CoinText.GetComponent<MMF_Player>().PlayFeedbacks();
+        if (amount < 0)
+        {
+            CoinText.transform.GetChild(0).GetComponent<MMF_Player>().PlayFeedbacks();
+        }
+        else
+        {
+            CoinText.GetComponent<MMF_Player>().PlayFeedbacks();
+        }
+        
     }
     public void UpdateFoodAmountByValue(int amount)
     {
         FoodAmount += amount;
         FoodText.GetComponent<TextMeshProUGUI>().text = "" + FoodAmount;
-        FoodText.GetComponent<MMF_Player>().PlayFeedbacks();
+        if (amount < 0)
+        {
+            FoodText.transform.GetChild(0).GetComponent<MMF_Player>().PlayFeedbacks();
+        }
+        else
+        {
+            FoodText.GetComponent<MMF_Player>().PlayFeedbacks();
+        }
+       
     }
     public void UpdateIronAmountByValue(int amount)
     {
         IronAmount += amount;
         IronText.GetComponent<TextMeshProUGUI>().text = "" + IronAmount;
-        IronText.GetComponent<MMF_Player>().PlayFeedbacks();
+        if (amount < 0)
+        {
+            IronText.transform.GetChild(0).GetComponent<MMF_Player>().PlayFeedbacks();
+        }
+        else
+        {
+            IronText.GetComponent<MMF_Player>().PlayFeedbacks();
+        }
+        
     }
     public void UpdateMoraleAmountByValue(int amount)
     {
