@@ -25,6 +25,33 @@ public class CResourceManager : MonoBehaviour
     {
         EnableResourceManagement();
     }
+    #region Getters
+    public int GetFoodAmount()
+    {
+        return FoodAmount;
+    }
+    public int GetCoinAmount() 
+    {  
+        return CoinAmount; 
+    }
+    public int GetWoodAmount()
+    {
+        return WoodAmount;
+    }
+    public int GetIronAmount()
+    {
+        return IronAmount;
+    }
+    public int GetCurrentPopulationAmount()
+    {
+        return CurrentPopulation;
+    }
+    public int GetMaxPopulationAmount()
+    {
+        return MaxPopulationAmount;
+    }
+
+    #endregion
     #region Event Manager Actions
     public void EnableResourceManagement()
     {
@@ -103,7 +130,7 @@ public class CResourceManager : MonoBehaviour
         }
         else if (amount < 0)
         {
-            CurrentPopulation -= amount;
+            CurrentPopulation += amount;
             PopulationText.GetComponent<TextMeshProUGUI>().text = "" + CurrentPopulation + "/"+ MaxPopulationAmount;
             PopulationText.transform.GetChild(0).GetComponent<MMF_Player>().PlayFeedbacks();
             

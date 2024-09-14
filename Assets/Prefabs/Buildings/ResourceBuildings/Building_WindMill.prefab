@@ -161,6 +161,8 @@ MonoBehaviour:
   - {fileID: 3714167533891747413}
   - {fileID: 4939126999633893119}
   - {fileID: 9134321817042755633}
+  BuildingImage: {fileID: 21300000, guid: 7730aead07920c74abb79f960f8659e4, type: 3}
+  PopulationAmount: 0
   ResourceType: grain
   AnimationsOnResourceGained: {fileID: 4566428704255300901}
   ResourceIncrementAmount: 1

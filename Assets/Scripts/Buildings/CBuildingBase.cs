@@ -13,6 +13,7 @@ public class CBuildingBase : MonoBehaviour
     [SerializeField] protected float TimeCounter = 0;
     [SerializeField] protected GameObject[] ExtraParticles;
     [SerializeField] protected GameObject[] OtherTeamBuildings;
+    [SerializeField] protected Sprite BuildingImage;
     [SerializeField] protected int PopulationAmount = 0;
     protected bool IsOwnedByPlayer = false;
     protected bool IsPopulationAdded = false;
@@ -125,6 +126,10 @@ public class CBuildingBase : MonoBehaviour
     public int GetPopulation()
     {
         return PopulationAmount;
+    }
+    public Sprite GetImageSprite()
+    {
+        return BuildingImage;
     }
 
     #endregion

@@ -9,6 +9,12 @@ public class CSoldierUnitBase : MonoBehaviour
     [SerializeField] protected GameObject[] OtherTeamUnits;
     [SerializeField] protected GameObject AnimationHandler;
     [SerializeField] protected CSoldierUnitCombat SoldierUnitCombat;
+    [SerializeField] protected Sprite SoldierUnitSprite;
+    [SerializeField] protected int FoodCost;
+    [SerializeField] protected int WoodCost;
+    [SerializeField] protected int IronCost;
+    [SerializeField] protected int CoinCost;
+    [SerializeField] protected float TimeToProduce;
 
     private void Start()
     {
@@ -17,6 +23,26 @@ public class CSoldierUnitBase : MonoBehaviour
     public string GetOwnedByColor()
     {
         return OwnedByColor;
+    }
+    public string GetSoldierName()
+    {
+        return BuildingName;
+    }
+    public int GetFoodCost()
+    {
+        return FoodCost;
+    }
+    public int GetWoodCost()
+    {
+        return WoodCost;
+    }
+    public int GetIronCost()
+    {
+        return IronCost;
+    }
+    public int GetCoinCost()
+    {
+        return CoinCost;
     }
     public void DecreaseHealth(float value)
     {
@@ -42,5 +68,10 @@ public class CSoldierUnitBase : MonoBehaviour
             OtherTeamUnits[1].SetActive(false);
             OtherTeamUnits[2].SetActive(true);
         }
+    }
+    public void SetOwnedByColor(string color)
+    {
+        OwnedByColor = color;
+        SetTeam();
     }
 }

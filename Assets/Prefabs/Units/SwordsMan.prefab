@@ -78,6 +78,12 @@ MonoBehaviour:
   - {fileID: 8094639896250806707}
   AnimationHandler: {fileID: 9026283089133650704}
   SoldierUnitCombat: {fileID: 4960766806932610402}
+  SoldierUnitSprite: {fileID: 21300000, guid: 5a77248d44cb701418a859edeead6a30, type: 3}
+  FoodCost: 1
+  WoodCost: 0
+  IronCost: 2
+  CoinCost: 1
+  TimeToProduce: 3
 --- !u!195 &3088411281639856703
 NavMeshAgent:
   m_ObjectHideFlags: 0

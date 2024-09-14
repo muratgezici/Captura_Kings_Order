@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class CBuildingInfoToUI : MonoBehaviour
 {
+    [SerializeField] private CResourceManager ResourceManager;
     private CResourceBuilding Building;
     private CMilitaryBuilding MilBuilding;
     [SerializeField] private TextMeshProUGUI LVLText;
@@ -63,6 +64,7 @@ public class CBuildingInfoToUI : MonoBehaviour
 
         LVLText.text = "Lvl "+Building.GetBuildingLevel()+"";
         BuildingNameText.text = ""+Building.GetBuildingName();
+        BuildingImage.sprite = Building.GetImageSprite();
         ResourceTypeText.text = "Resource type: "+Building.GetResourceType();
 
         //add morale too!

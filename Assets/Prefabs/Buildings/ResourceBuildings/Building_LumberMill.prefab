@@ -798,6 +798,8 @@ MonoBehaviour:
   - {fileID: 1515304309898474856}
   - {fileID: 2687308304499253342}
   - {fileID: 4715644902362701000}
+  BuildingImage: {fileID: 21300000, guid: e68758c501376194c860c52698604cf5, type: 3}
+  PopulationAmount: 0
   ResourceType: wood
   AnimationsOnResourceGained: {fileID: 3549619493457499592}
   ResourceIncrementAmount: 1

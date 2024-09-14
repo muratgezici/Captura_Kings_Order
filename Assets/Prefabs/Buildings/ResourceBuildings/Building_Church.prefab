@@ -61,6 +61,7 @@ MonoBehaviour:
   - {fileID: 4651158089875117852}
   - {fileID: 8272681576244937129}
   - {fileID: 6926219271280110026}
+  BuildingImage: {fileID: 21300000, guid: 59a0bc98321fe5c4785993966f5f3264, type: 3}
   PopulationAmount: 0
   ResourceType: morale
   AnimationsOnResourceGained: {fileID: 1390529899845333729}

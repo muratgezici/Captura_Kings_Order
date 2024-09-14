@@ -6,8 +6,9 @@ using UnityEngine.EventSystems;
 public class CClickAndGetInfoForBottomUI : MonoBehaviour
 {
     [SerializeField] private GameObject BuildingPanel;
+    [SerializeField] private GameObject MilitaryBuildingPanel;
     [SerializeField] private GameObject SoldierUnitPanel;
-    [SerializeField] private GameObject SelectedSoldier;
+     private GameObject SelectedSoldier;
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -26,22 +27,36 @@ public class CClickAndGetInfoForBottomUI : MonoBehaviour
 
                 if (hit.transform.gameObject.CompareTag("Building"))
                 {
-
+                    MilitaryBuildingPanel.SetActive(false);
+                    SoldierUnitPanel.SetActive(false);
                     BuildingPanel.SetActive(true);
                     BuildingPanel.GetComponent<CBuildingInfoToUI>().SetBuilding(hit.transform.gameObject);
                 }
+                else if (hit.transform.gameObject.CompareTag("MilitaryBuilding"))
+                {
+                    BuildingPanel.SetActive(false);
+                    SoldierUnitPanel.SetActive(false);
+                    MilitaryBuildingPanel.SetActive(true);
+                    MilitaryBuildingPanel.GetComponent<CMilitaryBuildingToUI>().SetBuilding(hit.transform.gameObject);
+                }
                 else if (hit.transform.gameObject.CompareTag("SoldierUnit"))
                 {
+                    BuildingPanel.SetActive(false);
+                    MilitaryBuildingPanel.SetActive(false);
+                    SoldierUnitPanel.SetActive(true);
+                    //SoldierUnitPanel.GetComponent<CSoldierUnitToUI>().SetBuilding(hit.transform.gameObject);
 
                     SelectedSoldier = hit.transform.gameObject;
                     SelectedSoldier.GetComponent<CSoldierUnitManager>().SetIsSoldierUnitSelected(true);
-                    BuildingPanel.SetActive(false);
+                    
                 }
                 else
                 {
                     if (!EventSystem.current.IsPointerOverGameObject())
                     {
                         BuildingPanel.SetActive(false);
+                        MilitaryBuildingPanel.SetActive(false);
+                        SoldierUnitPanel.SetActive(false);
                     }
                 }
             }

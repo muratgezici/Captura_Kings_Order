@@ -6,6 +6,7 @@ TagManager:
   tags:
   - SoldierUnit
   - Building
+  - MilitaryBuilding
   layers:
   - Default
   - TransparentFX

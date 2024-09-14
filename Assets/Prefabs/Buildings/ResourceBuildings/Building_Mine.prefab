@@ -976,6 +976,8 @@ MonoBehaviour:
   - {fileID: 5484406823637689332}
   - {fileID: 4445853705657077324}
   - {fileID: 2013748585960702503}
+  BuildingImage: {fileID: 21300000, guid: 4405772d75fbe4542b3300961b960529, type: 3}
+  PopulationAmount: 0
   ResourceType: iron
   AnimationsOnResourceGained: {fileID: 2333684726928484600}
   ResourceIncrementAmount: 1
