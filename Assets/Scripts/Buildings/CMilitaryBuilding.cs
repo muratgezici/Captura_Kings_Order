@@ -115,7 +115,15 @@ public class CMilitaryBuilding : CBuildingBase
         
 
     }
+    public void ResetProduction()
+    {
+        ProductionCount0 = 0;
+        ProductionCount1 = 0;
+        ProductionTimer = 0;
+        WhichToProduceFirst = -1;
+        IsProducingUnits = false;
 
+    }
     public bool ProduceUnit(int which_to_produce)
     {
         if (!IsProducingUnits)

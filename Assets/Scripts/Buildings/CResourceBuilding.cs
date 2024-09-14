@@ -21,6 +21,7 @@ public class CResourceBuilding : CBuildingBase
     {
         base.Start();
         OnEventEnable();
+        UpdatedMaxTimeForProduction = MaxTimeForProduction;
     }
     public void OnEventEnable()
     {
@@ -61,7 +62,7 @@ public class CResourceBuilding : CBuildingBase
     private void Update()
     {
         ResourceGainAction();
-        ChangeMaximumPopulation();
+        //ChangeMaximumPopulation();
     }
     public void ResourceGainAction()
     {
@@ -71,6 +72,7 @@ public class CResourceBuilding : CBuildingBase
             TimeCounter += Time.deltaTime;
             if (TimeCounter > UpdatedMaxTimeForProduction)
             {
+                Debug.Log(UpdatedMaxTimeForProduction);
                 TimeCounter = 0;
                 AnimationsOnResourceGained.GetComponent<MMF_Player>().PlayFeedbacks();
                 BroadcastMessageToResourceManager();

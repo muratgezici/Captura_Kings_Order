@@ -10,6 +10,8 @@ public class CBuildingInfoToUI : MonoBehaviour
     [SerializeField] private CResourceManager ResourceManager;
     private CResourceBuilding Building;
     [SerializeField] private TextMeshProUGUI LVLText;
+    [SerializeField] private TextMeshProUGUI GarrisonText;
+    [SerializeField] private TextMeshProUGUI TeamColorText;
     [SerializeField] private TextMeshProUGUI BuildingNameText;
     [SerializeField] private Image BuildingImage;
     [SerializeField] private TextMeshProUGUI ResourceTypeText;
@@ -25,8 +27,21 @@ public class CBuildingInfoToUI : MonoBehaviour
     [SerializeField] private GameObject PopulationPanel;
     [SerializeField] private GameObject RightBottomPanel;
     [SerializeField] private MMF_Player OnSuccesfullUpgradePlay;
-   
 
+    private void Start()
+    {
+        OnEventEnable();
+    }
+    public void OnEventEnable()
+    {
+        EventManager.OnSceneReload += OnEventDisable;
+        EventManager.OnUICanvasNeedsUpdate += UpdateResourceInfoPanel;
+    }
+    public void OnEventDisable()
+    {
+        EventManager.OnSceneReload -= OnEventDisable;
+        EventManager.OnUICanvasNeedsUpdate -= UpdateResourceInfoPanel;
+    }
     public void SetBuilding(GameObject building)
     {
         if(building.GetComponent<CResourceBuilding>() != null)
@@ -64,7 +79,16 @@ public class CBuildingInfoToUI : MonoBehaviour
         {
             LVLText.text = "Lvl " + Building.GetBuildingLevel() + "";
         }
+        if(Building.GetOwnedByColor() == "yellow")
+        {
+            TeamColorText.text = "Team: " + "Neutral";
+        }
+        else
+        {
+            TeamColorText.text = "Team: " + Building.GetOwnedByColor();
+        }
         
+        GarrisonText.text = "(Units Inside:" + Building.GetGarrisonAmount() + ")";
         BuildingNameText.text = ""+Building.GetBuildingName();
         BuildingImage.sprite = Building.GetImageSprite();
         ResourceTypeText.text = "Resource type: "+Building.GetResourceType();

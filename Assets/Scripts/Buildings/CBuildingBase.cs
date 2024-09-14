@@ -15,6 +15,7 @@ public class CBuildingBase : MonoBehaviour
     [SerializeField] protected GameObject[] OtherTeamBuildings;
     [SerializeField] protected Sprite BuildingImage;
     [SerializeField] protected int PopulationAmount = 0;
+    [SerializeField] protected int GarrisonAmount = 5;
     protected bool IsOwnedByPlayer = false;
     protected bool IsPopulationAdded = false;
     protected virtual void Start()
@@ -45,6 +46,11 @@ public class CBuildingBase : MonoBehaviour
     }
     public void OnBuildingCapture(string team_color)
     {
+        
+        if (gameObject.GetComponent<CMilitaryBuilding>() != null)
+        {
+            gameObject.GetComponent<CMilitaryBuilding>().ResetProduction();
+        }
         TimeCounter = 0;
         OwnedByColor = team_color;
         if(OwnedByColor == "yellow")
@@ -64,7 +70,6 @@ public class CBuildingBase : MonoBehaviour
             OtherTeamBuildings[3].SetActive(false);
             OtherTeamBuildings[1].SetActive(true);
             EventManager.TeamChangeAutomaticAnimations("blue", gameObject);
-            EventManager.UpdateMaxPopulationAmount(PopulationAmount);
         }
         else if (OwnedByColor == "red")
         {
@@ -85,7 +90,11 @@ public class CBuildingBase : MonoBehaviour
             EventManager.TeamChangeAutomaticAnimations("green", gameObject);
         }
         PlayExtraParticles();
-       
+        ChangeMaximumPopulation();
+        
+        
+
+
     }
     public void ChangeMaximumPopulation()
     {
@@ -131,7 +140,18 @@ public class CBuildingBase : MonoBehaviour
     {
         return BuildingImage;
     }
-
+    public int GetGarrisonAmount()
+    {
+        return GarrisonAmount;
+    }
+    public void SetGarrisonAmount(int val)
+    {
+        GarrisonAmount = val;
+    }
+    public void SetTimeCounter(float timer)
+    {
+        TimeCounter = timer;
+    }
     #endregion
 
 }

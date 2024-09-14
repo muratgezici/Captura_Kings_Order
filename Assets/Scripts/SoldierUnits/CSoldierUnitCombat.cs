@@ -113,9 +113,15 @@ public class CSoldierUnitCombat : MonoBehaviour
         if (UnitHealth <= 0)
         {
             HealthBarGreen.transform.parent.transform.parent.transform.gameObject.SetActive(false);
+            if(gameObject.transform.parent.gameObject.GetComponent<CSoldierUnitBase>().GetOwnedByColor() == "blue")
+            {
+                EventManager.UpdatePopulationAmount(-1);
+            }
+            
             Destroy(gameObject.transform.parent.gameObject);
         }
     }
+    
     public int GetEnemyUnitsNear()
     {
         return EnemyUnitNearCount;

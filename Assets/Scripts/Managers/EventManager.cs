@@ -41,6 +41,9 @@ public static class EventManager
 
     public static event UnityAction<CMilitaryBuilding> OnArmyProductionFinished;
     public static void ArmyProductionFinished(CMilitaryBuilding militaryBuilding) => OnArmyProductionFinished?.Invoke(militaryBuilding);
+
+    public static event UnityAction OnUICanvasNeedsUpdate;
+    public static void UICanvasNeedsUpdate() => OnUICanvasNeedsUpdate?.Invoke();
     #region Test Events
 
     public static event UnityAction<string> OnMouseClickToCapture;

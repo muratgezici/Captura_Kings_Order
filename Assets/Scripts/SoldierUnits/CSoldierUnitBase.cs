@@ -74,4 +74,13 @@ public class CSoldierUnitBase : MonoBehaviour
         OwnedByColor = color;
         SetTeam();
     }
+    public void GarrisonedInBuilding()
+    {
+        if(OwnedByColor == "blue")
+        {
+            EventManager.UpdatePopulationAmount(-1);
+        }
+        
+        Destroy(gameObject);
+    }
 }

@@ -8,7 +8,7 @@ public class CMainMenuActions : MonoBehaviour
     private bool IsSettingsPanelOpened = false;
     public void OnStartGameClicked()
     {
-        EventManager.TransitionStart("UITestScene");
+        EventManager.TransitionStart("Level1");
     }
     public void OnSettingsClicked()
     {

@@ -15,6 +15,8 @@ public class CMilitaryBuildingToUI : MonoBehaviour
     [SerializeField] private GameObject CancelButton1;
 
     [SerializeField] private TextMeshProUGUI LVLText;
+    [SerializeField] private TextMeshProUGUI GarrisonText;
+    [SerializeField] private TextMeshProUGUI TeamColorText;
     [SerializeField] private TextMeshProUGUI BuildingNameText;
     [SerializeField] private Image BuildingImage;
     [SerializeField] private Image ProductionTimerImage;
@@ -45,12 +47,14 @@ public class CMilitaryBuildingToUI : MonoBehaviour
         EventManager.OnSceneReload += OnEventDisable;
         EventManager.OnArmyProductionUpdated += UpdateUIWithArmyProduction;
         EventManager.OnArmyProductionFinished += ArmyUnitProductionFinished;
+        EventManager.OnUICanvasNeedsUpdate += UpdateResourceInfoPanel;
     }
     public void OnEventDisable()
     {
         EventManager.OnSceneReload -= OnEventDisable;
         EventManager.OnArmyProductionUpdated -= UpdateUIWithArmyProduction;
         EventManager.OnArmyProductionFinished -= ArmyUnitProductionFinished;
+        EventManager.OnUICanvasNeedsUpdate -= UpdateResourceInfoPanel;
     }
     public void SetBuilding(GameObject building)
     {
@@ -75,9 +79,18 @@ public class CMilitaryBuildingToUI : MonoBehaviour
             RightTopPanel.SetActive(true);
             RightBottomPanel.SetActive(true);
         }
-        
-        
-            LVLText.text = "Lvl " + MilBuilding.GetBuildingLevel();
+        if (MilBuilding.GetOwnedByColor() == "yellow")
+        {
+            TeamColorText.text = "Team: " + "Neutral";
+        }
+        else
+        {
+            TeamColorText.text = "Team: " + MilBuilding.GetOwnedByColor();
+        }
+
+
+        LVLText.text = "Lvl " + MilBuilding.GetBuildingLevel();
+            GarrisonText.text = "(Units Inside:" +MilBuilding.GetGarrisonAmount()+")";
             BuildingNameText.text = MilBuilding.GetBuildingName();
             BuildingImage.sprite = MilBuilding.GetImageSprite();
             if(MilBuilding.GetWhichToProduceFirst() == 0)
