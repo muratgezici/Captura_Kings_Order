@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+
 public class CClickAndGetInfoForBottomUI : MonoBehaviour
 {
     [SerializeField] private GameObject BuildingPanel;
@@ -14,7 +15,7 @@ public class CClickAndGetInfoForBottomUI : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             RaycastHit hit;
-            int layerMask = 1 << 8;
+            int layerMask = 1 << 8 | (1 << 9);
             layerMask = ~layerMask;
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100, layerMask))
             {

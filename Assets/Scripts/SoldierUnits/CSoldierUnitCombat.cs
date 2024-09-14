@@ -1,3 +1,5 @@
+using MoreMountains.Feedbacks;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,6 +15,9 @@ public class CSoldierUnitCombat : MonoBehaviour
     [SerializeField] protected float UnitAttackSpeed = 1.2f;
     [SerializeField] protected GameObject AnimationHandler;
     [SerializeField] protected GameObject HealthBarGreen;
+    [SerializeField] protected ParticleSystem DeathAnimEnemy;
+    [SerializeField] protected ParticleSystem DeathAnimFriendly;
+    [SerializeField] protected GameObject BowArrayObj;
     private float AttackTimer = 0;
     private void OnTriggerEnter(Collider other)
     {
@@ -93,16 +98,50 @@ public class CSoldierUnitCombat : MonoBehaviour
         }
         
         AttackTimer += Time.deltaTime;
-        float attack_speed_random_number = Random.Range(UnitAttackSpeed-0.2f, UnitAttackSpeed + 0.2f);
+        float attack_speed_random_number = UnityEngine.Random.Range(UnitAttackSpeed-0.2f, UnitAttackSpeed + 0.2f);
         if (AttackTimer > attack_speed_random_number)
         {
             AnimationHandler.GetComponent<CSoldierUnitAnimation>().AnimateAttackAnimation();
             //Debug.Log("Attacker: " + gameObject.name + " Attacked: " + enemy_unit.name);
-            AttackTimer = 0;
-            enemy_unit.gameObject.GetComponent<CSoldierUnitBase>().DecreaseHealth(UnitAttackPower);
-            return true;
+            if (gameObject.transform.parent.gameObject.GetComponent<CSoldierUnitBase>().GetSoldierName() == "Archer")
+            {
+                InstantlyTurn(enemy_unit.transform.position);
+                BowArrayObj.SetActive(false);
+                AttackTimer = 0;
+                GameObject arrow = Instantiate(BowArrayObj, BowArrayObj.transform.position, BowArrayObj.transform.rotation);
+                arrow.GetComponent<CDestroyArrow>().SetIsDeathEnabled(true);
+                arrow.GetComponent<CDestroyArrow>().LookAtTarget(enemy_unit);
+                arrow.SetActive(true);
+                List<MMF_DestinationTransform> dest_feedbacks = arrow.GetComponent<MMF_Player>().GetFeedbacksOfType<MMF_DestinationTransform>();
+                dest_feedbacks[0].Destination = enemy_unit.transform;
+                arrow.GetComponent<MMF_Player>().PlayFeedbacks();
+                StartCoroutine(ArrowShot(enemy_unit, arrow));
+
+
+                
+                return true;
+            }
+            else
+            {
+                AttackTimer = 0;
+                enemy_unit.gameObject.GetComponent<CSoldierUnitBase>().DecreaseHealth(UnitAttackPower);
+                return true;
+            }
+            
         }
         return false;
+    }
+    IEnumerator ArrowShot(GameObject enemy, GameObject arrow)
+    {
+        yield return new WaitForSeconds(0.5f);
+        if(enemy != null)
+        {
+            enemy.gameObject.GetComponent<CSoldierUnitBase>().DecreaseHealth(UnitAttackPower);
+        }
+        BowArrayObj.SetActive(false);
+        Destroy(arrow);
+
+
     }
     public void DecreaseHealth(float value)
     {
@@ -116,6 +155,14 @@ public class CSoldierUnitCombat : MonoBehaviour
             if(gameObject.transform.parent.gameObject.GetComponent<CSoldierUnitBase>().GetOwnedByColor() == "blue")
             {
                 EventManager.UpdatePopulationAmount(-1);
+                EventManager.UpdateMoraleAmount(-1);
+                ParticleSystem particle = Instantiate(DeathAnimFriendly, transform.position, Quaternion.identity);
+                particle.Play();
+            }
+            else
+            {
+                ParticleSystem particle = Instantiate(DeathAnimEnemy, transform.position, Quaternion.identity);
+                particle.Play();
             }
             
             Destroy(gameObject.transform.parent.gameObject);

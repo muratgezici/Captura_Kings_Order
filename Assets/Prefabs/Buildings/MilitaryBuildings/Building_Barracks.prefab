@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 8517704260635506752}
   - component: {fileID: 7408930585038556224}
   - component: {fileID: 3968319587760612281}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: CaptureManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -182,6 +182,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BuildingBase: {fileID: 1430200128065226129}
   UnitsRequiredForCapture: 5
+  UnitsInRange: []
+  SameColorUnitsInRange: []
 --- !u!65 &7408930585038556224
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -242,7 +244,7 @@ GameObject:
   - component: {fileID: 1742537514000730255}
   - component: {fileID: 7822284091892780619}
   - component: {fileID: 1788834959785631310}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: UnitsEnterRangeCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}

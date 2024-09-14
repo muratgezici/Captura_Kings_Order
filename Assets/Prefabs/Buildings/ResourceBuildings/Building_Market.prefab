@@ -320,7 +320,7 @@ GameObject:
   - component: {fileID: 4104606226383428805}
   - component: {fileID: 2965083160730916776}
   - component: {fileID: 5136990048305556451}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: CaptureManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1157,7 +1157,7 @@ GameObject:
   - component: {fileID: 4852349008643458336}
   - component: {fileID: 6962319271870925254}
   - component: {fileID: 2240802868724381712}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: UnitsEnterRangeCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
