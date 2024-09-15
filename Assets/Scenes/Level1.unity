@@ -9001,7 +9001,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.043333333
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 24e974201319e8947bf50c240bd06627, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: b4c7ddd3147f4fa46973cab5eae95d9e, type: 2}
   m_BuildHeightMesh: 0
 --- !u!65 &1578306539
 BoxCollider:
@@ -13350,7 +13350,8 @@ PrefabInstance:
         type: 3}
       propertyPath: UnitsToProduce.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 3325056107194080508, guid: 34cbae2cae41e114c8a10262daf509b0,
+        type: 3}
     - target: {fileID: 8387803014075866430, guid: 8a32aa3ca3bfea943a2f4ea24f3c514c,
         type: 3}
       propertyPath: managedReferences[7539948507869216771].SquashAndStretchTarget
