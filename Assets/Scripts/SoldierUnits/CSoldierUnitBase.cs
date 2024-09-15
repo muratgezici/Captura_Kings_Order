@@ -6,6 +6,7 @@ public class CSoldierUnitBase : MonoBehaviour
 {
     [SerializeField] protected string BuildingName = "";
     [SerializeField] protected string OwnedByColor = "blue";
+    [SerializeField] protected bool IsGarrisonEnabled = false;
     [SerializeField] protected GameObject[] OtherTeamUnits;
     [SerializeField] protected GameObject AnimationHandler;
     [SerializeField] protected CSoldierUnitCombat SoldierUnitCombat;
@@ -82,5 +83,13 @@ public class CSoldierUnitBase : MonoBehaviour
         }
         
         Destroy(gameObject);
+    }
+    public bool GetIsGarrisonEnabled()
+    {
+        return IsGarrisonEnabled;
+    }
+    public void SetIsGarrisonEnabled(bool value)
+    {
+        IsGarrisonEnabled = value;
     }
 }

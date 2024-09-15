@@ -48,7 +48,10 @@ public class CBuildingCapture : MonoBehaviour
     }
     public void OnUnitEnterBuilding(GameObject soldier_unit)
     {
-        
+        if (!soldier_unit.GetComponent<CSoldierUnitBase>().GetIsGarrisonEnabled())
+        {
+            return;
+        }
         string unit_color = soldier_unit.GetComponent<CSoldierUnitBase>().GetOwnedByColor();
         if (soldier_unit.GetComponent<CSoldierUnitBase>().GetOwnedByColor() == OwnedByColor)
         {

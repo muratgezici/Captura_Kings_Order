@@ -23,27 +23,59 @@ public class CClickAndGetInfoForBottomUI : MonoBehaviour
     private bool IsMouse0Clicked = false;
     private bool IsMouse0Clicked_SecondCheck = false;
     private bool IsEnteredHoldMode = false;
+    private bool IsHoldModeActive = false;
 
     private Vector2 MousePosStartPoint;
     private Vector2 MousePosEndPoint;
     [SerializeField] RectTransform SelectionBox;
+
+    private void SetAllVariablesToDefault()
+    {
+        DoubleClickTimer = 0f;
+        HoldClickTimer = 0f;
+        isDoubleClickTimerActive = false;
+        IsSingleClickActivated = false;
+        IsMouse0Clicked = false;
+        IsMouse0Clicked_SecondCheck = false;
+        IsEnteredHoldMode = false;
+
+        
+
+    }
     private void Update()
     {
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }
         if (Input.GetMouseButtonDown(0))
         {
+            
+            
             IsMouse0Clicked = true;
             IsMouse0Clicked_SecondCheck = true;
             Debug.Log("Mousebtndown");
-            
+            EmptySoldierList();
+
         }
         else if (Input.GetMouseButton(0) && IsEnteredHoldMode)
         {
+            IsHoldModeActive = true;
             ResizeSelectionBox();
         }
 
 
         if(Input.GetMouseButtonUp(0))
         {
+            if(IsHoldModeActive)
+            {
+                IsHoldModeActive = false;
+                SetAllVariablesToDefault();
+                SelectionBox.sizeDelta = Vector2.zero;
+                SelectionBox.gameObject.SetActive(false);
+                return;
+
+            }
             if(IsEnteredHoldMode)
             {
                 IsMouse0Clicked_SecondCheck = false;
@@ -57,8 +89,7 @@ public class CClickAndGetInfoForBottomUI : MonoBehaviour
             IsEnteredHoldMode = false;
             HoldClickTimer = 0;
 
-            SelectionBox.sizeDelta = Vector2.zero;
-            SelectionBox.gameObject.SetActive(false);
+            
         }
 
         if (IsMouse0Clicked && !IsEnteredHoldMode && !isDoubleClickTimerActive)
@@ -118,7 +149,7 @@ public class CClickAndGetInfoForBottomUI : MonoBehaviour
             DoubleClickTimer = 0;
             isDoubleClickTimerActive = false;
             IsSingleClickActivated = true;
-            EmptySoldierList();
+            
             Debug.Log("SingleClickExecuted");
             IsMouse0Clicked_SecondCheck = false;
             Ray mousepos = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -134,15 +165,21 @@ public class CClickAndGetInfoForBottomUI : MonoBehaviour
                 Soldiers.Remove(Soldiers[i]);
             }
         }
-        foreach (GameObject soldier_unit in Soldiers)
+        
+        foreach (GameObject soldier_ in GameObject.FindGameObjectsWithTag("SoldierUnit"))
         {
-            soldier_unit.GetComponent<CSoldierUnitManager>().SetIsSoldierUnitSelected(false);
+            if(soldier_.GetComponent<CSoldierUnitBase>().GetOwnedByColor() == "blue")
+            {
+                soldier_.GetComponent<CSoldierUnitManager>().SetIsSoldierUnitSelected(false);
+                soldier_.GetComponent<CSoldierUnitBase>().SetIsGarrisonEnabled(false);
+            }
         }
+        SelectedSoldier = null;
         Soldiers.Clear();
     }
     public void DoDoubleClickActions(Ray pos)
     {
-        EmptySoldierList();
+        SetAllVariablesToDefault();
         RaycastHit hit;
         int layerMask = 1 << 6;
         if (Physics.Raycast(pos, out hit, 100, layerMask))
@@ -161,11 +198,23 @@ public class CClickAndGetInfoForBottomUI : MonoBehaviour
                 }
                 
             }
+            if (Soldiers.Count > 0)
+            {
+                BuildingPanel.SetActive(false);
+                MilitaryBuildingPanel.SetActive(false);
+                SoldierUnitPanel.SetActive(true);
+                SoldierUnitPanel.GetComponent<CSoldierUnitToUI>().SetSoldiers(Soldiers);
+            }
+            else
+            {
+                SoldierUnitPanel.SetActive(false);
+            }
         }
         
     }
     public void DoSingleClickOperations(Ray pos)
     {
+        SetAllVariablesToDefault();
         RaycastHit hit;
         int layerMask = 1 << 8 | (1 << 9);
         layerMask = ~layerMask;
@@ -199,6 +248,7 @@ public class CClickAndGetInfoForBottomUI : MonoBehaviour
                     SoldierUnitPanel.SetActive(false);
                     MilitaryBuildingPanel.SetActive(true);
                     MilitaryBuildingPanel.GetComponent<CMilitaryBuildingToUI>().SetBuilding(hit.transform.gameObject);
+                    
                 }
                 else if (hit.transform.gameObject.CompareTag("SoldierUnit"))
                 {
@@ -212,6 +262,9 @@ public class CClickAndGetInfoForBottomUI : MonoBehaviour
                         SelectedSoldier = hit.transform.gameObject;
 
                         SelectedSoldier.GetComponent<CSoldierUnitManager>().SetIsSoldierUnitSelected(true);
+                        List<GameObject> single_soldier = new List<GameObject>();
+                        single_soldier.Add(SelectedSoldier);
+                        SoldierUnitPanel.GetComponent<CSoldierUnitToUI>().SetSoldiers(single_soldier);
                     }
                     
 
@@ -233,7 +286,7 @@ public class CClickAndGetInfoForBottomUI : MonoBehaviour
     }
     private void ResizeSelectionBox()
     {
-        EmptySoldierList();
+        
         float width = Input.mousePosition.x - MousePosStartPoint.x;
         float height = Input.mousePosition.y - MousePosStartPoint.y;
         SelectionBox.anchoredPosition = MousePosStartPoint + new Vector2(width/2, height/2);
@@ -251,8 +304,20 @@ public class CClickAndGetInfoForBottomUI : MonoBehaviour
                     Soldiers.Add(soldier_units[i]);
                     soldier_units[i].GetComponent<CSoldierUnitManager>().SetIsSoldierUnitSelected(true);
                     Debug.Log("Selected");
+
                 }
             }
+        }
+        if(Soldiers.Count > 0)
+        {
+            BuildingPanel.SetActive(false);
+            MilitaryBuildingPanel.SetActive(false);
+            SoldierUnitPanel.SetActive(true);
+            SoldierUnitPanel.GetComponent<CSoldierUnitToUI>().SetSoldiers(Soldiers);
+        }
+        else
+        {
+            SoldierUnitPanel.SetActive(false);
         }
     }
     private bool UnitsInSelectionBox(Vector2 Position, Bounds bounds)
