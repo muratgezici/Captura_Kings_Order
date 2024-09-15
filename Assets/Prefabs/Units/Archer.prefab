@@ -570,9 +570,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyUnitsNear: []
   EnemyUnitNearCount: 0
-  UnitHealth: 10
-  UnitMaxHealth: 10
-  UnitAttackPower: 5
+  UnitHealth: 12
+  UnitMaxHealth: 12
+  UnitAttackPower: 3
   UnitAttackSpeed: 1.2
   AnimationHandler: {fileID: 4593037386144871067}
   HealthBarGreen: {fileID: 972595012142570656}
@@ -703,6 +703,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BuildingName: Archer
   OwnedByColor: red
+  IsGarrisonEnabled: 0
   OtherTeamUnits:
   - {fileID: 4596068443166467882}
   - {fileID: 4625910625168097272}
@@ -711,8 +712,8 @@ MonoBehaviour:
   SoldierUnitCombat: {fileID: 4652901099587662260}
   SoldierUnitSprite: {fileID: 21300000, guid: 9f7958c1b4e576e498af72a59cb946d1, type: 3}
   FoodCost: 1
-  WoodCost: 0
-  IronCost: 2
+  WoodCost: 3
+  IronCost: 0
   CoinCost: 1
   TimeToProduce: 3
 --- !u!195 &1934929826014846582

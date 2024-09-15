@@ -74,6 +74,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BuildingName: Swordsman
   OwnedByColor: red
+  IsGarrisonEnabled: 0
   OtherTeamUnits:
   - {fileID: 3869390033295551801}
   - {fileID: 6017776439333350180}
@@ -199,14 +200,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyUnitsNear: []
   EnemyUnitNearCount: 0
-  UnitHealth: 10
-  UnitMaxHealth: 10
+  UnitHealth: 20
+  UnitMaxHealth: 20
   UnitAttackPower: 5
   UnitAttackSpeed: 1.2
   AnimationHandler: {fileID: 9026283089133650704}
   HealthBarGreen: {fileID: 5447859322864313295}
   DeathAnimEnemy: {fileID: 6600119624639944197}
   DeathAnimFriendly: {fileID: 1675522865767459038}
+  BowArrayObj: {fileID: 0}
 --- !u!136 &2766071515866089489
 CapsuleCollider:
   m_ObjectHideFlags: 0

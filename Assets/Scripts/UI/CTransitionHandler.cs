@@ -41,11 +41,13 @@ public class CTransitionHandler : MonoBehaviour
     {
         EventManager.OnSceneReload += DisableTransitionStart;
         EventManager.OnTransitionStart += TransitionFadeIn;
+        
     }
     public void DisableTransitionStart()
     {
         EventManager.OnSceneReload -= DisableTransitionStart;
         EventManager.OnTransitionStart -= TransitionFadeIn;
+       
     }
     public void TransitionFadeIn(string next_scene)
     {
@@ -68,4 +70,5 @@ public class CTransitionHandler : MonoBehaviour
             panel.transform.GetChild(1).GetComponent<MMF_Player>().PlayFeedbacks();
         }
     }
+    
 }

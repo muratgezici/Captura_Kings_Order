@@ -253,6 +253,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BuildingName: Pikeman
   OwnedByColor: blue
+  IsGarrisonEnabled: 0
   OtherTeamUnits:
   - {fileID: 5845345076467158345}
   - {fileID: 8711679825231066135}
@@ -260,9 +261,9 @@ MonoBehaviour:
   AnimationHandler: {fileID: 6209196798771364557}
   SoldierUnitCombat: {fileID: 6975204935308722817}
   SoldierUnitSprite: {fileID: 21300000, guid: 78e54545ff849e248a4f981b891298c9, type: 3}
-  FoodCost: 1
-  WoodCost: 0
-  IronCost: 2
+  FoodCost: 2
+  WoodCost: 1
+  IronCost: 1
   CoinCost: 1
   TimeToProduce: 3
 --- !u!195 &6109798609254018176
@@ -563,14 +564,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyUnitsNear: []
   EnemyUnitNearCount: 0
-  UnitHealth: 10
-  UnitMaxHealth: 10
-  UnitAttackPower: 5
-  UnitAttackSpeed: 1.2
+  UnitHealth: 16
+  UnitMaxHealth: 16
+  UnitAttackPower: 4
+  UnitAttackSpeed: 1.4
   AnimationHandler: {fileID: 6209196798771364557}
   HealthBarGreen: {fileID: 1875399520721815301}
   DeathAnimEnemy: {fileID: 6778874294073876209}
   DeathAnimFriendly: {fileID: 1929164022018786210}
+  BowArrayObj: {fileID: 0}
 --- !u!136 &2565912384321582664
 CapsuleCollider:
   m_ObjectHideFlags: 0

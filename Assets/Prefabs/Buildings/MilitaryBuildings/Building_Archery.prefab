@@ -923,7 +923,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5141109212653387993}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ProductionPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -955,7 +955,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7765402513040665581}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Buildings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1087,9 +1087,9 @@ GameObject:
   - component: {fileID: 4670331691446722856}
   - component: {fileID: 2217677845009299458}
   - component: {fileID: 5788625941824182428}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Building_Archery
-  m_TagString: Untagged
+  m_TagString: MilitaryBuilding
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1335,6 +1335,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 06e8ee3c7f16f0548881dabd63a39f9d,
         type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 06e8ee3c7f16f0548881dabd63a39f9d,
+        type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -1443,6 +1448,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelupCylinderBlue
       objectReference: {fileID: 0}
+    - target: {fileID: 931352995334258111, guid: 7894e9ff3a821ea42a692a6a0cda4e5c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 931352995334393643, guid: 7894e9ff3a821ea42a692a6a0cda4e5c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5040715221958620594, guid: 7894e9ff3a821ea42a692a6a0cda4e5c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 9114302974981536476, guid: 7894e9ff3a821ea42a692a6a0cda4e5c,
         type: 3}
       propertyPath: playOnAwake
@@ -1528,6 +1548,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: building_archeryrange_yellow
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 06f0e65954a5e4246b8bf376619c7c10,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1607,6 +1632,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: building_archeryrange_red
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 104cb0cc672aa5d4c8e5e3c977a9b7e0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 104cb0cc672aa5d4c8e5e3c977a9b7e0,
         type: 3}
@@ -1809,6 +1839,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: building_archeryrange_blue
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 56743f0477aa9b24fbe99b219f2c6240,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 56743f0477aa9b24fbe99b219f2c6240,
         type: 3}

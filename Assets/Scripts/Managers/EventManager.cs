@@ -36,7 +36,13 @@ public static class EventManager
     public static event UnityAction<string> OnTransitionStart;
     public static void TransitionStart(string scene_name) => OnTransitionStart?.Invoke(scene_name);
 
+    public static event UnityAction<string> OnGoToScene;
+    public static void GoToScene(string scene_name) => OnGoToScene?.Invoke(scene_name);
+
+
+
     public static event UnityAction<float, float, CMilitaryBuilding> OnArmyProductionUpdated;
+
     public static void ArmyProductionUpdated(float current_timer, float max_timer, CMilitaryBuilding militaryBuilding) => OnArmyProductionUpdated?.Invoke(current_timer, max_timer, militaryBuilding);
 
     public static event UnityAction<CMilitaryBuilding> OnArmyProductionFinished;
