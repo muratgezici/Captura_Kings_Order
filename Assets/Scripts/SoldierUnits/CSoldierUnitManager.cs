@@ -55,7 +55,7 @@ public class CSoldierUnitManager : MonoBehaviour
                 
                 if (!InStateCheck)
                 {
-                    Debug.Log("in idle");
+                    //Debug.Log("in idle");
                     InStateCheck = true;
                 }
                 if (SoldierUnitCombat.GetCombatRangeEnemy() != null)
@@ -77,7 +77,7 @@ public class CSoldierUnitManager : MonoBehaviour
             case SoldierUnitState.MoveToBasePosition:
                 if (!InStateCheck)
                 {
-                    Debug.Log("movetobase");
+                    //Debug.Log("movetobase");
                     MoveToDestinationAfterChase(BasePositionObject);
                     InStateCheck = true;
                 }
@@ -102,7 +102,7 @@ public class CSoldierUnitManager : MonoBehaviour
             case SoldierUnitState.MoveToDestination:
                 if (!InStateCheck)
                 {
-                    Debug.Log("movetodest");
+                    //Debug.Log("movetodest");
                     InStateCheck = true;
                 }
                 if (SoldierUnitMoveScript.MoveToClickedPos())
@@ -114,7 +114,7 @@ public class CSoldierUnitManager : MonoBehaviour
             case SoldierUnitState.DetectEnemies:
                 if (!InStateCheck)
                 {
-                    Debug.Log("detect");
+                    //Debug.Log("detect");
                     InStateCheck = true;
                 }
                 
@@ -136,7 +136,7 @@ public class CSoldierUnitManager : MonoBehaviour
             case SoldierUnitState.MoveToDetectedEnemy:
                 if (!InStateCheck)
                 {
-                    Debug.Log("in detect move");
+                    //Debug.Log("in detect move");
                     IsOnBasePosition = false;
                     InStateCheck = true;
                 }
@@ -165,7 +165,7 @@ public class CSoldierUnitManager : MonoBehaviour
             case SoldierUnitState.CombatStart:
                 if (!InStateCheck)
                 {
-                    Debug.Log("combat");
+                   // Debug.Log("combat");
                     InStateCheck = true;
                 }
                 if(SoldierUnitCombat.GetCombatRangeEnemy() != null)
@@ -186,7 +186,7 @@ public class CSoldierUnitManager : MonoBehaviour
             case SoldierUnitState.CombatInProgress:
                 if (!InStateCheck)
                 {
-                    Debug.Log("combatprogress");
+                    //Debug.Log("combatprogress");
                     InStateCheck = true;
                 }
                 if (SoldierUnitCombat.InitiateCombat(SoldierUnitCombat.GetCombatRangeEnemy()))
@@ -207,7 +207,7 @@ public class CSoldierUnitManager : MonoBehaviour
             case SoldierUnitState.CaptureBuildings:
                 if (!InStateCheck)
                 {
-                    Debug.Log("capture");
+                    //Debug.Log("capture");
                     InStateCheck = true;
                 }
 

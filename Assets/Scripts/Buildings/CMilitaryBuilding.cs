@@ -10,6 +10,7 @@ public class CMilitaryBuilding : CBuildingBase
     [SerializeField] private Sprite[] UnitsToProduceSprites;
     [SerializeField] private GameObject ProducePoint;
     [SerializeField] private GameObject AnimationsOnArmyProduced;
+    [SerializeField] private ParticleSystem OnUnitProducedParticle;
 
     private int ProductionCount0 = 0;
     private int ProductionCount1 = 0;
@@ -29,6 +30,7 @@ public class CMilitaryBuilding : CBuildingBase
         base.Start();
         OnEventEnable();
         MaxProductionTimer = MaxTimeForProduction;
+        UpdatedMaxTimeForProduction = MaxTimeForProduction;
     }
     public void OnEventEnable()
     {
@@ -149,7 +151,9 @@ public class CMilitaryBuilding : CBuildingBase
                     unit.transform.position += new Vector3(rand, 0, rand);
                     EventManager.ArmyProductionFinished(gameObject.GetComponent<CMilitaryBuilding>());
                     Debug.Log("produced");
-                    if(ProductionCount0 == 0)
+                    OnUnitProducedParticle.transform.position = unit.transform.position;
+                    OnUnitProducedParticle.Play();
+                    if (ProductionCount0 == 0)
                     {
                         ProductionTimer = 0;
                         if (ProductionCount1 > 0)
@@ -175,6 +179,8 @@ public class CMilitaryBuilding : CBuildingBase
                     float rand = Random.Range(-0.1f,0.1f);
                     unit.transform.position += new Vector3(rand, 0, rand);
                     EventManager.ArmyProductionFinished(gameObject.GetComponent<CMilitaryBuilding>());
+                    OnUnitProducedParticle.transform.position = unit.transform.position;
+                    OnUnitProducedParticle.Play();
                     if (ProductionCount1 == 0)
                     {
                         ProductionTimer = 0;

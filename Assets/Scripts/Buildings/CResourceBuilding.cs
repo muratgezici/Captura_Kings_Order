@@ -11,6 +11,7 @@ public class CResourceBuilding : CBuildingBase
     [SerializeField] private int WoodCostForUpgrade;
     [SerializeField] private int IronCostForUpgrade;
     [SerializeField] private int CoinCostForUpgrade;
+    [SerializeField] private ParticleSystem UpdateParticles;
 
     private int Morale = 50;
     private float UpdatedMaxTimeForProduction = 0;
@@ -72,7 +73,6 @@ public class CResourceBuilding : CBuildingBase
             TimeCounter += Time.deltaTime;
             if (TimeCounter > UpdatedMaxTimeForProduction)
             {
-                Debug.Log(UpdatedMaxTimeForProduction);
                 TimeCounter = 0;
                 AnimationsOnResourceGained.GetComponent<MMF_Player>().PlayFeedbacks();
                 BroadcastMessageToResourceManager();
@@ -187,7 +187,7 @@ public class CResourceBuilding : CBuildingBase
             {
                 ResourceIncrementAmount += 1;
             }
-           
+            UpdateParticles.Play();
         }
         else
         {
