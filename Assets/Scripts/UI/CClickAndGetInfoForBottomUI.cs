@@ -13,18 +13,15 @@ public class CClickAndGetInfoForBottomUI : MonoBehaviour
     private GameObject SelectedSoldier;
     private List<GameObject> Soldiers = new List<GameObject>();
     private float DoubleClickTimer = 0f;
-    private float DoubleClickMaxTime = 0.1f;
+    private float DoubleClickMaxTime = 0.08f;
 
-    private float HoldClickTimer = 0f;
-    private float HoldClickMaxTime = 0.1f;
 
-    private bool isDoubleClickTimerActive = false;
-    private bool IsSingleClickActivated = false;
     private bool IsMouse0Clicked = false;
-    private bool IsMouse0Clicked_SecondCheck = false;
-    private bool IsEnteredHoldMode = false;
+    private bool IsMouse0ClickUp = false;
+    
     private bool IsHoldModeActive = false;
 
+    private int ClickCount = 0;
     private Vector2 MousePosStartPoint;
     private Vector2 MousePosEndPoint;
     [SerializeField] RectTransform SelectionBox;
@@ -32,128 +29,117 @@ public class CClickAndGetInfoForBottomUI : MonoBehaviour
     private void SetAllVariablesToDefault()
     {
         DoubleClickTimer = 0f;
-        HoldClickTimer = 0f;
-        isDoubleClickTimerActive = false;
-        IsSingleClickActivated = false;
         IsMouse0Clicked = false;
-        IsMouse0Clicked_SecondCheck = false;
-        IsEnteredHoldMode = false;
-
-        
-
+        IsMouse0ClickUp = false;
+        IsHoldModeActive = false;
+        SelectionBox.sizeDelta = Vector2.zero;
+        SelectionBox.gameObject.SetActive(false);
     }
     private void Update()
     {
-        if (EventSystem.current.IsPointerOverGameObject())
-        {
-            return;
-        }
+
+        
+
         if (Input.GetMouseButtonDown(0))
         {
-            
-            
+            PointerEventData pointer = new PointerEventData(EventSystem.current);
+            pointer.position = Input.mousePosition;
+
+            List<RaycastResult> raycastResults = new List<RaycastResult>();
+            EventSystem.current.RaycastAll(pointer, raycastResults);
+
+            if (raycastResults.Count > 0)
+            {
+                foreach (var go in raycastResults)
+                {
+                    if (go.gameObject.activeSelf)
+                    {
+                        Debug.Log("onUI: "+ go.gameObject.name);
+                        SetAllVariablesToDefault();
+                        return;
+                    }
+                }
+            }
+            ClickCount++;
             IsMouse0Clicked = true;
-            IsMouse0Clicked_SecondCheck = true;
             Debug.Log("Mousebtndown");
+            MousePosStartPoint = Input.mousePosition;
             EmptySoldierList();
-
-        }
-        else if (Input.GetMouseButton(0) && IsEnteredHoldMode)
-        {
-            IsHoldModeActive = true;
-            ResizeSelectionBox();
         }
 
-
-        if(Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButton(0) && IsMouse0Clicked)
         {
-            if(IsHoldModeActive)
+            MousePosEndPoint = Input.mousePosition;
+            if (Vector2.Distance(MousePosStartPoint, MousePosEndPoint) > 4)
+            {
+                IsHoldModeActive = true;
+                SelectionBox.sizeDelta = Vector2.zero;
+                SelectionBox.gameObject.SetActive(true);
+            }
+            if (IsHoldModeActive)
+            {
+                Debug.Log("entered holdd");
+                IsMouse0ClickUp = false;
+                ResizeSelectionBox();
+            }
+        }
+
+        if (Input.GetMouseButtonUp(0) && IsMouse0Clicked)
+        {
+            if (IsHoldModeActive)
             {
                 IsHoldModeActive = false;
                 SetAllVariablesToDefault();
-                SelectionBox.sizeDelta = Vector2.zero;
-                SelectionBox.gameObject.SetActive(false);
-                return;
-
             }
-            if(IsEnteredHoldMode)
-            {
-                IsMouse0Clicked_SecondCheck = false;
-            }
-            else 
-            {
-                Debug.Log("Exited without entering Hold mode");
-            }
-
+            IsMouse0ClickUp = true;
+            Debug.Log("Mouse btn up");
             IsMouse0Clicked = false;
-            IsEnteredHoldMode = false;
-            HoldClickTimer = 0;
 
-            
         }
 
-        if (IsMouse0Clicked && !IsEnteredHoldMode && !isDoubleClickTimerActive)
-        {
-            Debug.Log("Entered Hold Mode TÝmer");
-            HoldClickTimer += Time.deltaTime;
-            if (HoldClickTimer > HoldClickMaxTime)
-            {
-                HoldClickTimer = 0;
-                IsMouse0Clicked = false;
-                IsEnteredHoldMode = true;
-                IsMouse0Clicked_SecondCheck = false;
-                Debug.Log("Entered Hold Mode");
-
-                SelectionBox.sizeDelta = Vector2.zero;
-                SelectionBox.gameObject.SetActive(true);
-                MousePosStartPoint = Input.mousePosition;
-            }
-        }
-        else if (IsMouse0Clicked_SecondCheck && !IsEnteredHoldMode) //Clicked with normal
-        {
-
-            if (!isDoubleClickTimerActive && !IsSingleClickActivated)
-            {
-                Debug.Log("DoubleClickStarted"+ "gameobject" + gameObject.name);
-                isDoubleClickTimerActive = true;
-            }
-            else
-            {
-                if (isDoubleClickTimerActive && !IsSingleClickActivated)
-                {
-                    Debug.Log("DoubleClickExecuted"+"gameobject"+gameObject.name);
-                    IsMouse0Clicked_SecondCheck = false;
-                    isDoubleClickTimerActive = false;
-                    DoubleClickTimer = 0;
-                    Ray mousepos = Camera.main.ScreenPointToRay(Input.mousePosition);
-                    DoDoubleClickActions(mousepos);
-
-                }
-            }
-            
-        }
-
-        if (isDoubleClickTimerActive)
-        {
-            IsMouse0Clicked_SecondCheck = false;
-            DoubleClickTimerHolder();
-        }
         
-    }
-    public void DoubleClickTimerHolder()
-    {
-        DoubleClickTimer += Time.deltaTime;
-        Debug.Log("DoubleClickTimer: " + DoubleClickTimer);
-        if (DoubleClickTimer > DoubleClickMaxTime)
+
+      
+
+        
+        if (ClickCount > 0 && !IsHoldModeActive && IsMouse0ClickUp && !IsMouse0Clicked)
         {
-            DoubleClickTimer = 0;
-            isDoubleClickTimerActive = false;
-            IsSingleClickActivated = true;
+
             
-            Debug.Log("SingleClickExecuted");
-            IsMouse0Clicked_SecondCheck = false;
             Ray mousepos = Camera.main.ScreenPointToRay(Input.mousePosition);
-            DoSingleClickOperations(mousepos);
+            
+            if (ClickCount >= 2)
+            {
+                DoDoubleClickActions(mousepos);
+                Debug.Log("Double click done");
+                IsMouse0ClickUp = false;
+                DoubleClickTimer = 0;
+                ClickCount = 0;
+                SetAllVariablesToDefault();
+            }
+            else if(ClickCount > 0)
+            {
+                Debug.Log("Single click done");
+                DoSingleClickOperations(mousepos);
+            }
+          
+            
+        }
+        if (ClickCount > 0)
+        {
+            DoubleClickTimer += Time.deltaTime;
+            if (DoubleClickTimer > DoubleClickMaxTime)
+            {
+                Debug.Log("Double click disabled");
+                IsMouse0ClickUp = false;
+                DoubleClickTimer = 0;
+                ClickCount = 0;
+                SetAllVariablesToDefault();
+
+
+
+
+            }
         }
     }
     public void EmptySoldierList()
@@ -280,7 +266,6 @@ public class CClickAndGetInfoForBottomUI : MonoBehaviour
                 }
             }
         }
-        IsSingleClickActivated = false;
 
 
     }

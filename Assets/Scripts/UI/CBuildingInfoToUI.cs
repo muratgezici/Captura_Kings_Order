@@ -154,7 +154,7 @@ public class CBuildingInfoToUI : MonoBehaviour
         int ResourceWood = ResourceManager.GetWoodAmount();
         int ResourceCoin = ResourceManager.GetCoinAmount();
         int ResourceIron = ResourceManager.GetIronAmount();
-        if(Building.GetCoinCostForUpgrade() < ResourceCoin && Building.GetWoodCostForUpgrade() < ResourceWood && Building.GetIronCostForUpgrade() < ResourceIron)
+        if(Building.GetCoinCostForUpgrade() <= ResourceCoin && Building.GetWoodCostForUpgrade() <= ResourceWood && Building.GetIronCostForUpgrade() <= ResourceIron)
         {
             EventManager.UpdateWoodAmount(-Building.GetWoodCostForUpgrade());
             EventManager.UpdateIronAmount(-Building.GetIronCostForUpgrade());
